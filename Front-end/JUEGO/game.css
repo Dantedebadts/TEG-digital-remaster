@@ -1,0 +1,1433 @@
+body {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #242323;
+    gap: 1%;
+}
+
+.map-container {
+display: flex;
+justify-content: center;
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+  background-color: rgb(32, 120, 178); 
+  border-radius: 10px;
+}
+
+.mapa {
+  width: 100%;       
+  height: auto;     
+  display: block;
+  margin: 0 auto;   
+  object-fit: contain;
+  visibility: visible;
+}
+
+.svg{
+    pointer-events: none;
+}
+
+.svg path{
+    pointer-events: visiblePainted;
+}
+
+svg path.nombre {
+  pointer-events: none;
+}
+
+.australia {
+    position: absolute;
+    top: 69.4%;
+    right: 0.4%;
+    width: auto;
+}
+
+.sumatra {
+    position: absolute;
+    top: 64.4%;
+    right: 12.6%;
+    width: auto;
+}
+
+.borneo {
+    position: absolute;
+    top: 54.5%;
+    right: 6%;
+    width: auto;
+}
+
+.java {
+    position: absolute;
+    top: 54%;
+    right: 1.8%;
+    width: auto;
+}
+
+.chile {
+    position: absolute;
+    top: 72.7%;
+    right: 67.2%;
+    width: auto;
+}
+
+.peru {
+    position: absolute;
+    top: 63.5%;
+    right: 64%;
+    width: auto;
+}
+
+.argentina {
+    position: absolute;
+    top: 72.8%;
+    right: 62.6%;
+    width: auto;
+}
+
+.uruguay {
+    position: absolute;
+    top: 72.4%;
+    right: 57.9%;
+    width: auto;
+}
+
+.brasil {
+    position: absolute;
+    top: 55.5%;
+    right: 53.7%;
+    width: auto;
+}
+
+.colombia {
+    position: absolute;
+    top: 53.9%;
+    right: 64.1%;
+    width: auto;
+}
+
+.india {
+    position: absolute;
+    top: 44.7%;
+    right: 8.8%;
+    width: auto;
+}
+
+.malasia {
+    position: absolute;
+    top: 38.8%;
+    right: 2.75%;
+    width: auto;
+}
+
+.china {
+    position: absolute;
+    top: 14.2%;
+    right: 2.3%;
+    width: auto;
+}
+
+.iran {
+    position: absolute;
+    top: 22.2%;
+    right: 15.4%;
+    width: auto;
+}
+
+.japon {
+    position: absolute;
+    top: 11.5%;
+    right: 1.5%;
+    width: auto;
+}
+
+.mongolia {
+    position: absolute;
+    top: 18.2%;
+    right: 14.7%;
+    width: auto;
+}
+
+.gobi {
+    position: absolute;
+    top: 26.7%;
+    right: 12.9%;
+    width: auto;
+}
+
+.kamchatka {
+    position: absolute;
+    top: 4%;
+    right: 10.1%;
+    width: auto;
+}
+
+.turquia {
+    position: absolute;
+    top: 40.5%;
+    right: 17%;
+    width: auto;
+}
+
+.israel {
+    position: absolute;
+    top: 49.5%;
+    right: 19.7%;
+    width: auto;
+}
+
+.arabia {
+    position: absolute;
+    top: 52.2%;
+    right: 16.8%;
+    width: auto;
+}
+
+.siberia {
+    position: absolute;
+    top: 7.2%;
+    right: 13.8%;
+    width: auto;
+}
+
+.taimir {
+    position: absolute;
+    top: 2.6%;
+    right: 17%;
+    width: auto;
+}
+
+.tartaria {
+    position: absolute;
+    top: 0.5%;
+    right: 21%;
+    width: auto;
+    height: 16.4%;
+}
+
+.aral {
+    position: absolute;
+    top: 5.8%;
+    right: 23.8%;
+    width: auto;
+}
+
+.rusia {
+    position: absolute;
+    top: 8.5%;
+    right: 22.1%;
+    width: auto;
+}
+
+.suecia {
+    position: absolute;
+    top: 10.9%;
+    right: 34.7%;
+    width: auto;
+}
+
+.polonia {
+    position: absolute;
+    top: 32.7%;
+    right: 26.55%;
+    width: auto;
+}
+
+.alemania {
+    position: absolute;
+    top: 34.1%;
+    right: 30.81%;
+    width: auto;
+}
+
+.italia {
+    position: absolute;
+    top: 49.8%;
+    right: 30.8%;
+    width: auto;
+}
+
+.francia {
+    position: absolute;
+    top: 39.1%;
+    right: 37.3%;
+    width: auto;
+}
+
+.españa{
+    position: absolute;
+    top: 50.4%;
+    right: 43.25%;
+    width: auto;
+}
+
+.granbretaña{
+    position: absolute;
+    top: 27%;
+    right: 42.5%;
+    width: auto;
+}
+
+.islandia{
+    position: absolute;
+    top: 24.2%;
+    right: 51.9%;
+    width: auto;
+}
+
+.sahara {
+    position: absolute;
+    top: 66.8%;
+    right: 32.7%;
+    width: auto;
+}
+
+.egipto {
+    position: absolute;
+    top: 65.3%;
+    right: 20.6%;
+    width: auto;
+}
+
+.etiopia {
+    position: absolute;
+    top: 72.6%;
+    right: 23.8%;
+    width: auto;
+}
+
+.zaire {
+    position: absolute;
+    top: 77.6%;
+    right: 29.4%;
+    width: auto;
+}
+
+.sudafrica {
+    position: absolute;
+    top: 82.7%;
+    right: 24.9%;
+    width: auto;
+}
+
+.madagascar {
+    position: absolute;
+    top: 77%;
+    right: 17.3%;
+    width: auto;
+}
+
+.mexico {
+    position: absolute;
+    top: 43.2%;
+    right: 72%;
+    width: auto;
+}
+
+.california{
+    position: absolute;
+    top: 36.4%;
+    right: 75.6%;
+    width: auto;
+}
+
+.oregon{
+    position: absolute;
+    top: 30.4%;
+    right: 81.9%;
+    width: auto;
+}
+
+.nuevayork{
+    position: absolute;
+    top: 21.8%;
+    right: 70.5%;
+    width: auto;
+}
+
+.terranova{
+    position: absolute;
+    top: 20.7%;
+    right: 70.8%;
+    width: auto;
+}
+
+.labrador{
+    position: absolute;
+    top: 15.8%;
+    right: 69.6%;
+    width: auto;
+}
+
+.groenlandia{
+    position: absolute;
+    top: 0.5%;
+    right: 60.1%;
+    width: auto;
+}
+
+.canada {
+    position: absolute;
+    top: 1.3%;
+    right: 76%;
+    width: auto;
+}
+
+.yukon{
+    position: absolute;
+    top: 11.6%;
+    right: 85.4%;
+    width: auto;
+}
+
+.alaska {
+    position: absolute;
+    top: 20.1%;
+    right: 91.9%;
+    width: auto;
+}
+
+.boton_atras {    
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.guardar {
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+.guardar:hover {
+    lighting-color: #af8308;
+    color: #403000  ;
+}
+
+.currentturn {
+    position: absolute;
+    color: white;
+    background-color: #c59a3e;;
+    width: 13.8%;
+    height: fit-content;
+    font-size: 110%;
+    text-align: center;
+    top: 0.5%;
+    font-family: "Tiro Bangla", serif;
+    border-radius: 10px;
+    border-style: solid;
+    border-color: white;
+    border-width: 3px;
+}
+
+.instrucciones {
+    height: fit-content;
+    font-size: 75%;
+    text-align: center;
+}
+
+a {
+    color: white;
+    font-style: normal;
+    text-decoration: none;
+    outline: none;
+}
+
+.footer {
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+    bottom: 1%;
+    width: 100%;
+    text-align: center;
+    height: 21.5%;
+    justify-content: space-evenly;
+    margin: -11%;
+}
+
+.sector{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2px;
+    border: #f7f3e9;
+    height: fit-content;
+    width: 15%;
+    border-radius: 10px;
+    transition: all 0.2s ease-in-out;
+}
+
+.boton_interaccion {
+    width: fit-content;
+    height: auto;
+    color: darkgoldenrod;
+    padding: 4px;
+    background-color: rgb(255, 254, 204);
+    margin: 2px;
+    border-radius: 10px;
+    border-style: solid;
+    border-color: darkgoldenrod;
+    font-family: "Tiro Bangla", serif;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+.boton_interaccion:hover{
+    transform: scale(1.1);
+    background-color: darkgoldenrod;
+    color: white;
+    border-color: white
+}
+
+.boton_sector {
+    width: 55%;
+    height: auto;
+    color: darkgoldenrod;
+    padding: 4px;
+    background-color: rgb(255, 254, 204);
+    margin: 2px;
+    border-radius: 10px;
+    border-style: solid;
+    border-color: darkgoldenrod;
+    font-family: "Tiro Bangla", serif;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+.boton_sector:hover{
+    transform: scale(1.1);
+    background-color: darkgoldenrod;
+    color: white;
+    border-color: white;
+}
+
+.boton_sector_b {
+    width: 50%;
+    height: fit-content;
+    color: darkgoldenrod;
+    padding: 4px;
+    background-color: rgb(255, 254, 204);
+    margin: 2px;
+    border-radius: 10px;
+    border-style: solid;
+    border-color: darkgoldenrod;
+    font-family: "Tiro Bangla", serif;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    font-size: 75%;
+}
+
+.boton_sector_b:hover{
+    transform: scale(1.1);
+    background-color: darkgoldenrod;
+    color: white;
+    border-color: white
+}
+
+.containersector{
+    display: flex;
+    flex-direction: row;
+}
+
+.objetivo{
+    color: black;
+    font-family: "Tiro Bangla", serif;
+    text-align: center;
+}
+
+.pausa {
+position: absolute;
+left: 2.5%;
+top: 2.5%;
+transition: all 0.2s ease-in-out;
+cursor: pointer;
+}
+
+.pausa:hover {
+transform: scale(1.1);
+}
+
+.reanudar {
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+.actRapidaIns {
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+.actRapidaIns:hover {
+    lighting-color: #af8308;
+    color: #403000  ;
+}
+
+.menuPausa {
+    justify-self: center;
+    width: 15%;
+    height: fit-content;
+    text-align: center;
+    align-items: center;
+    font-family: "Tiro Bangla", serif;
+    font-style:inherit;
+    background-color: #c59a3e;
+    border-radius: 10px;
+    color: white;
+}
+
+.menuConfig {
+    justify-self: center;
+    width: max-content;
+    height: max-content;
+    text-align: center;
+    align-items: center;
+    vertical-align: auto;
+    font-family: "Tiro Bangla", serif;
+    font-style:inherit;
+    background-color: #c59a3e;
+    border-radius: 10px;
+    color: white;
+}
+
+.atrasConfig {
+    justify-self: left;
+    cursor: pointer;
+    transition: all 0.1s ease-in-out;
+    width: 20%;
+}
+
+.atrasConfig:hover {
+    lighting-color: #af8308;
+    color: #403000  ; 
+}
+
+.reanudar:hover {
+    lighting-color: #af8308;
+    color: #403000  ;
+}
+
+.configuracion {
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+.configuracion:hover {
+    lighting-color: #af8308;
+    color: #403000  ;
+}
+
+.salir {
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+.salir:hover {
+    lighting-color: #af8308;
+    color: #403000;
+}
+
+.barraBrillo {
+    width: 60%; 
+    height: auto;
+    border-radius: 10px; 
+    border: 3px solid;
+    border-color: #c59a3e;
+    appearance: none; 
+    margin-top: 20px; 
+    cursor: pointer;
+    background: linear-gradient(45deg, #504e4c, #c4bab7ef);
+    padding: 5px 10px;
+    transition: opacity 0.5s ease-in-out; 
+}
+
+.barraBrillo::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  background-color: #c59a3e;
+  border-radius: 4px; 
+  border-width: 2px;
+  border-style: solid;
+  border-color: #413e3e8a;
+  cursor: pointer;
+}
+
+.tarjeta {
+  background: linear-gradient( #fcff9d, #b2a36b);
+  width: 90px;
+  height: 130px;
+  border-radius: 10px;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  padding: 3px;
+  font-family: "Tiro Bangla", serif;
+  display: flex;
+  flex-direction: column;
+  border-width: 2px;
+  border-style: solid;
+  border-color: black;
+  transition: all 0.2s ease-in-out;
+  justify-content: space-evenly;
+  cursor: pointer;
+}
+
+.bordeAmarillo {
+  border-color: gold;
+}
+
+.dialogtarjetas{
+    background-color: #c59a3e;
+    border-radius: 10px;
+    border-color: white;
+    justify-content: center;
+    align-items: center ;
+}
+
+.dialogdados{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    font-family: "Tiro Bangla", serif;
+}
+
+.containertarjetas{
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+    margin: 5px;
+}
+
+.containerdados{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+.containeratacante{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    justify-content: center;
+    align-items: center;
+}
+
+.containerdefensor{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    justify-content: center;
+    align-items: center;
+}
+
+.fin{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    background-color: #c59a3e;
+    box-shadow: rgb(58, 45, 45);
+    font-family: "Tiro Bangla", serif;
+}
+
+.dialogObjetivos {
+    background-color: rgb(255, 254, 204);
+    border-radius: 10px;
+    border-color: #c59a3e;
+    justify-content: center;
+    align-items: center ;
+}
+
+.fin_dialog {
+    background-color: #c59a3e;
+    border-radius: 10px;
+    border-color: white;
+}
+
+.rojo{background-color: red;}
+.azul{background-color: blue;}
+.amarillo{background-color: yellow;}
+.verde{background-color: green;}
+.magenta{background-color: magenta;}
+.negro{background-color: black;}
+
+.ficha{
+    display: flex;
+    position: absolute;
+    top: 45%;
+    right: 45%;
+    width: 2%;
+    height: 4.35%;
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: black;
+    border: 1px solid white;
+    z-index: 3;
+    cursor: default;
+}
+
+.faustralia {
+    position: absolute;
+    top: 82%;
+    right: 4.5%;
+}
+
+.fsumatra {
+    position: absolute;
+    top: 67%;
+    right: 14.5%;
+    height: 3.2%;
+    width: 1.4%;
+}
+
+.fborneo {
+    position: absolute;
+    top: 58%;
+    right: 7.6%;
+    height: 3.2%;
+    width: 1.4%;
+}
+
+.fjava {
+    position: absolute;
+    top: 57.5%;
+    right: 2.5%;
+    height: 3.2%;
+    width: 1.4%;
+}
+
+
+.fchile {
+    position: absolute;
+    top: 78%;
+    right: 68%;
+    height: 3.2%;
+    width: 1.4%;
+}
+
+.fperu {
+    position: absolute;
+    top: 69.2%;
+    right: 65%;
+    height: 3.2%;
+    width: 1.4%;
+}
+
+.fargentina {
+    position: absolute;
+    top: 82.5%;
+    right: 64.2%;
+    height: 4%;
+    width: 1.8%
+}
+
+.furuguay {
+    position: absolute;
+    top: 73.6%;
+    right: 60.8%;
+    height: 3.2%;
+    width: 1.4%;
+}
+
+.fbrasil {
+    position: absolute;
+    top: 67.5%;
+    right: 59%;
+}
+
+.fcolombia {
+    position: absolute;
+    top: 60%;
+    right: 66.4%;
+    height: 3.2%;
+    width: 1.4%;
+}
+
+.findia {
+    position: absolute;
+    top: 47.5%;
+    right: 11%;
+}
+
+.fmalasia {
+    position: absolute;
+    top: 47%;
+    right: 4.5%;
+}
+
+.fchina {
+    position: absolute;
+    top: 27%;
+    right: 10%;
+}
+
+.firan {
+    position: absolute;
+    top: 26%;
+    right: 22.5%;
+}
+
+.fjapon {
+    position: absolute;
+    top: 16.6%;
+    right: 4.1%;
+    height: 3.2%;
+    width: 1.4%;
+}
+
+.fgobi {
+    position: absolute;
+    top: 36.5%;
+    right: 15.7%;
+    width: 1.8%;
+    height: 4%;
+}
+
+.fmongolia {
+    position: absolute;
+    top: 27.5%;
+    right: 18.5%;
+    width: 1.8%;
+    height: 4%;
+}
+
+.fkamchatka {
+    position: absolute;
+    top: 5.8%;
+    right: 13%;
+    height: 3.2%;
+    width: 1.4%;
+}
+
+.fturquia {
+    position: absolute;
+    top: 42.1%;
+    right: 22%;
+    height: 3.2%;
+    width: 1.4%;
+}
+
+.fisrael {
+    position: absolute;
+    top: 56.6%;
+    right: 23.9%;
+    height: 3.2%;
+    width: 1.4%;
+}
+
+.farabia {
+    position: absolute;
+    top: 59.5%;
+    right: 18.6%;
+    height: 4%;
+    width: 1.8%;
+}
+
+.fsiberia {
+    position: absolute;
+    top: 16.5%;
+    right: 21.3%;
+    height: 3.2%;
+    width: 1.4%;
+}
+
+.ftaimir {
+    position: absolute;
+    top: 10.1%;
+    right: 19.2%;
+    height: 3.2%;
+    width: 1.4%;
+}
+
+.ftartaria {
+    position: absolute;
+    top: 8%;
+    right: 22.4%;
+    width: 1.8%;
+    height: 4%;
+}
+
+.faral {
+    position: absolute;
+    top: 15.7%;
+    right: 25%;
+}
+
+.frusia {
+    position: absolute;
+    top: 20%;
+    right: 30.5%;
+}
+
+.fsuecia {
+    position: absolute;
+    top: 19.7%;
+    right: 38%;
+}
+
+.fpolonia {
+    position: absolute;
+    top: 42.5%;
+    right: 28.5%;
+}
+
+.falemania {
+    position: absolute;
+    top: 38%;
+    right: 34%;
+}
+
+.fitalia {
+    position: absolute;
+    top: 53.5%;
+    right: 34.6%;
+    height: 3.2%;
+    width: 1.4%;
+}
+
+.ffrancia {
+    position: absolute;
+    top: 43%;
+    right: 40%;
+}
+
+.fespaña{
+    position: absolute;
+    top: 52.5%;
+    right: 46.5%;
+}
+
+.fgranbretaña{
+    position: absolute;
+    top: 32.6%;
+    right: 44.2%;
+    height: 3.2%;
+    width: 1.4%;
+}
+
+.fislandia{
+    position: absolute;
+    top: 27.5%;
+    right: 55%;
+}
+
+.fsahara {
+    position: absolute;
+    top: 77%;
+    right: 38%;
+}
+
+.fegipto {
+    position: absolute;
+    top: 73.8%;
+    right: 23%;
+    width: 1.8%;
+    height: 4%;
+}
+
+.fetiopia {
+    position: absolute;
+    top: 74.2%;
+    right: 31.7%;
+    width: 1.4%;
+    height: 3.2%;
+}
+
+.fzaire {
+    position: absolute;
+    top: 82.5%;
+    right: 30.5%;
+    height: 3.2%;
+    width: 1.4%;
+}
+
+.fsudafrica {
+    position: absolute;
+    top: 85%;
+    right: 27.5%;
+}
+
+.fmadagascar {
+    position: absolute;
+    top: 85%;
+    right: 19.7%;
+}
+
+.fmexico {
+    position: absolute;
+    top: 45.8%;
+    right: 79.7%;
+    width: 1.8%;
+    height: 4%;
+}
+
+.fcalifornia{
+    position: absolute;
+    top: 40.6%;
+    right: 84.6%;
+    width: 1.8%;
+    height: 4%;
+}
+
+.foregon{
+    position: absolute;
+    top: 33.5%;
+    right: 85%;
+}
+
+.fnuevayork{
+    position: absolute;
+    top: 26%;
+    right: 81%;
+}
+
+.fterranova{
+    position: absolute;
+    top: 29.5%;
+    right: 72%;
+    width: 1.4%;
+    height: 3.2%;
+}
+
+.flabrador{
+    position: absolute;
+    top: 22%;
+    right: 73.8%;
+    width: 1.8%;
+    height: 4%;
+}
+
+.fgroenlandia{
+    position: absolute;
+    top: 4%;
+    right: 65.5%;
+}
+
+.fcanada {
+    position: absolute;
+    top: 15.5%;
+    right: 82.5%;
+}
+
+.fyukon{
+    position: absolute;
+    top: 27%;
+    right: 89%;
+}
+
+.falaska {
+    position: absolute;
+    top: 27.5%;
+    right: 95.1%;
+}
+
+.puente{
+    pointer-events: none;
+}
+
+.mad-zai{
+    position: absolute;
+    top: 87%;
+    right: 22.3%;
+    width: auto;
+    height: 12.5%;
+}
+
+.aus-sum{
+    position: absolute;
+    top: 71.4%;
+    right: 9.5%;
+    width: auto;
+    height: 4.8%;
+}
+
+.gro-nue{
+    position: absolute;
+    top: 23%;
+    right: 67%;
+    width: auto;
+    height: 12.5%;
+}
+
+.gro-lab{
+    position: absolute;
+    top: 13.5%;
+    right: 68.2%;
+    width: auto;
+    height: 6%;
+}
+
+.ala-kam{
+    position: absolute;
+    top: 8.8%;
+    right: 0.3%;
+    width: auto;
+    height: 0.5%;
+}
+
+.kam-ala{
+    position: absolute;
+    top: 20.5%;
+    right: 96.55%;
+    width: auto;
+    height: 0.6%;
+}
+
+.aus-chi{
+    position: absolute;
+    top: 88.4%;
+    right: 0%;
+    width: auto;
+    height: 0.44%;
+}
+
+.chi-aus{
+    position: absolute;
+    top: 83%;
+    right: 70.4%;
+    width: auto;
+    height: 0.9%;
+}
+
+.aus-bor{
+    position: absolute;
+    top: 67%;
+    right: 7.6%;
+    width: auto;
+    height: 7.9%;
+}
+
+.aus-jav{
+    position: absolute;
+    top: 65%;
+    right: 2.7%;
+    width: auto;
+    height: 9.3%;
+}
+
+.chi-jap{
+    position: absolute;
+    top: 17.3%;
+    right: 6.6%;
+    width: auto;
+    height: 9.8%;
+}
+
+.jap-kam{
+    position: absolute;
+    top: 11.4%;
+    right: 8.5%;
+    width: auto;
+    height: 3.1%;
+}
+
+.sah-bra{
+    position: absolute;
+    top: 69.4%;
+    right: 42.9%;
+    width: auto;
+    height: 2.7%;
+}
+
+.sah-esp{
+    position: absolute;
+    top: 61.4%;
+    right: 41.4%;
+    width: auto;
+    height: 6.7%;
+}
+
+.gro-isl{
+    position: absolute;
+    top: 25%;
+    right: 58.5%;
+    width: auto;
+    height: 8.1%;
+}
+
+.isl-gra{
+    position: absolute;
+    top: 37%;
+    right: 47.8%;
+    width: auto;
+    height: 1.7%;
+}
+
+.isl-sue{
+    position: absolute;
+    top: 21.4%;
+    right: 42%;
+    width: auto;
+    height: 11%;
+}
+
+.gra-esp{
+    position: absolute;
+    top: 44%;
+    right: 47.4%;
+    width: auto;
+    height: 7.7%;
+}
+
+.gra-ale{
+    position: absolute;
+    top: 35.4%;
+    right: 37.9%;
+    width: auto;
+    height: 2.2%;
+}
+
+.ind-sum{
+    position: absolute;
+    top: 63.2%;
+    right: 13.5%;
+    width: auto;
+    height: 3.3%;
+}
+
+.mal-bor{
+    position: absolute;
+    top: 49.6%;
+    right: 7.4%;
+    width: auto;
+    height: 4.8%;
+}
+
+.egi-isr{
+    position: absolute;
+    top: 59.8%;
+    right: 26.4%;
+    width: auto;
+    height: 5.9%;
+}
+
+.egi-tur{
+    position: absolute;
+    top: 54.3%;
+    right: 28.1%;
+    width: auto;
+    height: 12.4%;
+}
+
+.egi-pol{
+    position: absolute;
+    top: 52.7%;
+    right: 30.1%;
+    width: auto;
+    height: 15.8%;
+}
+
+.egi-mad{
+    position: absolute;
+    top: 77.8%;
+    right: 21.1%;
+    width: auto;
+    height: 2.5%;
+}
+
+.sectorturno{
+    border-width: 3px;   
+    border-style: solid;
+    border-color: darkgoldenrod;
+}
+
+.elsesector{
+    border-width: 3px;   
+    border-style: solid;
+    border-color: rgb(59, 59, 59);
+}
+
+.pasarfichas{
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    background-color: #c59a3e;
+    box-shadow: rgb(58, 45, 45);
+    font-family: "Tiro Bangla", serif;
+    border-radius: 10px
+}
+
+.guardadoListo {
+    position: relative;
+    width: fit-content;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    background-color: #c59a3e;
+    box-shadow: rgb(58, 45, 45);
+    font-family: "Tiro Bangla", serif;
+    border-radius: 10px;
+}
+
+select {
+  background-color: rgb(255, 254, 204);
+  text-align: center;
+  color: darkgoldenrod;
+  font-family: "Tiro Bangla", serif;
+  font-style: normal;
+  border-radius: 10px;
+  border-width: 2px;
+  border-style: solid;
+  border-color: darkgoldenrod;
+  height: 25px;
+  cursor: pointer;
+}
+
+.tcontainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px
+}
+
+.dialogresultados{
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    background-color: #c59a3e;
+    box-shadow: rgb(58, 45, 45);
+    font-family: "Tiro Bangla", serif;
+    border-radius: 10px
+}
+
+.containerobjetivo{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px
+}
+
+.dnuevatarjeta{
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    background-color: #c59a3e;
+    box-shadow: rgb(58, 45, 45);
+    font-family: "Tiro Bangla", serif;
+    border-radius: 10px
+}
+
+.containertbuttons{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.fichascanje{
+    color: white;
+    margin: 3px;
+    font-family: "Tiro Bangla", serif;
+    justify-self: center;
+}

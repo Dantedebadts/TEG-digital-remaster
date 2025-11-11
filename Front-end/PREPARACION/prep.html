@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PREPARACION</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tiro+Bangla:ital@0;1&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../PREPARACION/prep.css">
+    <script src="prep.js" defer></script>
+</head>
+<body>
+    <a href="../INICIO/inicio.html" class="boton_atras"><div> Volver </div></a>
+   
+    <dialog id="advertencia" class="advertencia">
+        <div id="contenidojug"></div>
+        <div id="contenidoobj"></div>
+        <div id="contenidoins"></div>
+        <button class="boton_interaccion" id="cerrar">Cerrar</button>
+    </dialog>
+    <h1>PREPARACIÓN</h1>
+    <select id="playersid" class="cantJugadores"> 
+    <option value="0">Cantidad de Jugadores</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+    <option value="6">6</option>
+    </select>
+    <br>
+    <select id="objetivosid" class="objSecretos">
+    <option value="0">Modo de Juego</option>
+    <option class="chiquito" value="1">Objetivos Secretos (Sin Obj. de Destrucción)</option>
+    <option class="chiquito" value="4">Objetivos Secretos (Con Obj. de Destrucción)</option>
+    <option value="2">Objetivo Común (30 Países)</option>
+    <option value="3">Dominación Mundial (50 Países)</option>
+    </select>
+    <br>
+    <select id="instructorid" class="instructor">
+    <option value="0"> Instructor </option>
+    <option value="1"> SI (recomendado)</option>
+    <option value="2"> NO </option>
+    </select>
+    <br>
+    <button id="gameready" class="botonSiguiente">Siguiente</button>
+        <a href="../CREDITOS/creditos.html">
+        <img src="../IMAGENES/Logo.png"  alt="Logo TEG" class="logoMini">
+        </a>
+</body>
+</html>

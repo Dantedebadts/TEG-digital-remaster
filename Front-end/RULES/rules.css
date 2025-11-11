@@ -1,0 +1,72 @@
+.cuadro {
+    width: 800px;
+    height: fit-content;
+    text-align: center;
+    font-size: 1.4rem;
+    border-radius: 10px;
+    font-family: "Tiro Bangla", serif;
+}
+
+.caja_cuadro {
+    display: grid;
+    place-items: center;
+    
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient( #524019, #c59a3e) ;
+    height: fit-content;
+}   
+
+
+.boton_atras {
+    position: absolute;
+    top: 1.5rem; 
+    left: 1.5rem; 
+    z-index: 100;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: black; 
+    background-color: #c59a3e; 
+    border: 3px solid black; 
+    padding: 5px 10px;
+    border-radius: 5px; 
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    display: inline-block;
+    text-decoration: none;
+    font-family: "Tiro Bangla", serif;
+}
+
+.boton_atras:hover {
+    background-color: #f7f3e9; 
+    color: #c59a3e; 
+    border: 3px solid #c59a3e;
+    transform: scale(1.2);
+}
+
+a {
+    color: black;
+    font-style: normal;
+    text-decoration: none;
+}
+
+h1 {
+    color: white;
+    font-size: 5rem;
+    margin-bottom: 20px;
+    text-align: center;
+    font-family: "Tiro Bangla", serif;
+}
+
+p{
+     font-family: "Tiro Bangla", serif;
+     color: white;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 20px;
+
+}

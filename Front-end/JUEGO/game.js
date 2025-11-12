@@ -1034,50 +1034,328 @@ let tarjetasverde = [];
 let tarjetasmagenta = [];
 let tarjetasnegro = []; 
 let mazoreserva = [];
-let itarj = 0;
+let itarj1 = 0;
 let itarj2 = 0;
-let itarj3 = 0;
-let itarj4 = 0;
 
-//cargar tarjetas del back
-function cargarTarjetas () {
-getEvent("cargarTarjetas", (tarjetas) => {
-itarj = 0;
-itarj2 = 0;
-itarj3 = 0;
-itarj4 = 0;
-while(tarjetas.tarjetasLimpias.length > itarj){
-while(tarjetas.tarjetasLimpias[itarj].pais != paises[itarj2].nombre){
-itarj2++;
+//Declaración tarjetas de países
+let taustralia = {
+    pais: australia,
+    fichas: 2,
+    color: "",
+    simbolo: "Cañon",
 };
-let paistarjeta = paises[itarj2];
-let nuevatarjeta = {
-    "pais": paistarjeta,
-    "fichas": tarjetas.tarjetasLimpias[itarj].fichas,
-    "color": tarjetas.tarjetasLimpias[itarj].color,
-    "simbolo": tarjetas.tarjetasLimpias[itarj].simbolo,
+let tsumatra = {
+    pais: sumatra,
+    fichas: 2,
+    color: "",
+    simbolo: "Globo",
 };
-tpaises.push(nuevatarjeta);
-itarj2 = 0;
-itarj++;
-}
-while(tpaises.length > itarj3){
+let tjava = {
+    pais: java,
+    fichas: 2,
+    color: "",
+    simbolo: "Cañon",
+};
+let tborneo = {
+    pais: borneo,
+    fichas: 2,
+    color: "",
+    simbolo: "Fragata",
+};
+let tindia = {
+    pais: india,
+    fichas: 2,
+    color: "",
+    simbolo: "Globo",
+};
+let tmalasia = {
+    pais: malasia,
+    fichas: 2,
+    color: "",
+    simbolo: "Cañon",
+};
+let tchina = {
+    pais: china,
+    fichas: 2,
+    color: "",
+    simbolo: "Fragata",
+};
+let tiran = {
+    pais: iran,
+    fichas: 2,
+    color: "",
+    simbolo: "Globo",
+};
+let tjapon = {
+    pais: japon,
+    fichas: 2,
+    color: "",
+    simbolo: "Cañon",
+};
+let tgobi = {
+    pais: gobi,
+    fichas: 2,
+    color: "",
+    simbolo: "Globo",
+};
+let tmongolia = {
+    pais: mongolia,
+    fichas: 2,
+    color: "",
+    simbolo: "Fragata",
+};
+let tkamchatka = {
+    pais: kamchatka,
+    fichas: 2,
+    color: "",
+    simbolo: "Globo",
+};
+let tturquia = {
+    pais: turquia,
+    fichas: 2,
+    color: "",
+    simbolo: "Fragata",
+};
+let tisrael = {
+    pais: israel,
+    fichas: 2,
+    color: "",
+    simbolo: "Fragata",
+};
+let tarabia = {
+    pais: arabia,
+    fichas: 2,
+    color: "",
+    simbolo: "Cañon",
+};
+let tsiberia = {
+    pais: siberia,
+    fichas: 2,
+    color: "",
+    simbolo: "Fragata",
+};
+let ttaimir = {
+    pais: taimir,
+    fichas: 2,
+    color: "",
+    simbolo: "Comodin",
+};
+let ttartaria = {
+    pais: tartaria,
+    fichas: 2,
+    color: "",
+    simbolo: "Cañon",
+};
+let taral = {
+    pais: aral,
+    fichas: 2,
+    color: "",
+    simbolo: "Cañon",
+};
+let trusia = {
+    pais: rusia,
+    fichas: 2,
+    color: "",
+    simbolo: "Globo",
+};
+let tsuecia = {
+    pais: suecia,
+    fichas: 2,
+    color: "",
+    simbolo: "Fragata",
+};
+let tpolonia = {
+    pais: polonia,
+    fichas: 2,
+    color: "",
+    simbolo: "Cañon",
+};
+let talemania = {
+    pais: alemania,
+    fichas: 2,
+    color: "",
+    simbolo: "Fragata",
+};
+let titalia = {
+    pais: italia,
+    fichas: 2,
+    color: "",
+    simbolo: "Globo",
+};
+let tfrancia = {
+    pais: francia,
+    fichas: 2,
+    color: "",
+    simbolo: "Globo",
+};
+let tespaña = {
+    pais: españa,
+    fichas: 2,
+    color: "",
+    simbolo: "Globo",
+};
+let tgranbretaña = {
+    pais: granbretaña,
+    fichas: 2,
+    color: "",
+    simbolo: "Fragata",
+};
+let tislandia = {
+    pais: islandia,
+    fichas: 2,
+    color: "",
+    simbolo: "Fragata",
+};
+let talaska = {
+    pais: alaska,
+    fichas: 2,
+    color: "",
+    simbolo: "Fragata",
+};
+let tcanada = {
+    pais: canada,
+    fichas: 2,
+    color: "",
+    simbolo: "Cañon",
+};
+let tyukon = {
+    pais: yukon,
+    fichas: 2,
+    color: "",
+    simbolo: "Globo",
+};
+let toregon = {
+    pais: oregon,
+    fichas: 2,
+    color: "",
+    simbolo: "Cañon",
+};
+let tnuevayork = {
+    pais: nuevayork,
+    fichas: 2,
+    color: "",
+    simbolo: "Fragata",
+};
+let tterranova = {
+    pais: terranova,
+    fichas: 2,
+    color: "",
+    simbolo: "Cañon",
+};
+let tlabrador = {
+    pais: labrador,
+    fichas: 2,
+    color: "",
+    simbolo: "Cañon",
+};
+let tgroenlandia = {
+    pais: groenlandia,
+    fichas: 2,
+    color: "",
+    simbolo: "Globo",
+};
+let tcalifornia = {
+    pais: california,
+    fichas: 2,
+    color: "",
+    simbolo: "Cañon",
+};
+let tmexico = {
+    pais: mexico,
+    fichas: 2,
+    color: "",
+    simbolo: "Cañon",
+};
+let tchile = {
+    pais: chile,
+    fichas: 2,
+    color: "",
+    simbolo: "Globo",
+};
+let tperu = {
+    pais: peru,
+    fichas: 2,
+    color: "",
+    simbolo: "Fragata",
+};
+let targentina = {
+    pais: argentina,
+    fichas: 2,
+    color: "",
+    simbolo: "Comodin",
+};
+let turuguay = {
+    pais: uruguay,
+    fichas: 2,
+    color: "",
+    simbolo: "Globo",
+};
+let tbrasil = {
+    pais: brasil,
+    fichas: 2,
+    color: "",
+    simbolo: "Fragata",
+};
+let tcolombia = {
+    pais: colombia,
+    fichas: 2,
+    color: "",
+    simbolo: "Globo",
+};
+let tsahara = {
+    pais: sahara,
+    fichas: 2,
+    color: "",
+    simbolo: "Cañon",
+};
+let tegipto = {
+    pais: egipto,
+    fichas: 2,
+    color: "",
+    simbolo: "Globo",
+};
+let tetiopia = {
+    pais: etiopia,
+    fichas: 2,
+    color: "",
+    simbolo: "Globo",
+};
+let tzaire = {
+    pais: zaire,
+    fichas: 2,
+    color: "",
+    simbolo: "Fragata",
+};
+let tsudafrica = {
+    pais: sudafrica,
+    fichas: 2,
+    color: "",
+    simbolo: "Cañon",
+};
+let tmadagascar = {
+    pais: madagascar,
+    fichas: 2,
+    color: "",
+    simbolo: "Fragata",
+};
+
+tpaises.push(taustralia, tsumatra, tjava, tborneo, tindia, tmalasia, tchina, tiran, tjapon, tgobi, tmongolia, tkamchatka, tturquia, tisrael, tarabia, tsiberia, ttaimir, ttartaria, taral, trusia, tsuecia, tpolonia, talemania, titalia, tfrancia, tespaña, tgranbretaña, tislandia, talaska, tcanada, tyukon, toregon, tnuevayork, tterranova, tlabrador, tgroenlandia, tcalifornia, tmexico, tchile, tperu, targentina, turuguay, tbrasil, tcolombia, tsahara, tegipto, tetiopia, tzaire, tsudafrica, tmadagascar);
+
+while(tpaises.length > itarj1){
     randomizador = Math.floor(Math.random() * tpaises.length);
-    itarj4 = 0;
-    while(mazo.length > itarj4 && mazo[itarj4] != tpaises[randomizador]){
-        itarj4++;
+    itarj2 = 0;
+    while(mazo.length > itarj2 && mazo[itarj2] != tpaises[randomizador]){
+        itarj2++;
     };
-    if(mazo[itarj4] != tpaises[randomizador]){
+    if(mazo[itarj2] != tpaises[randomizador]){
         mazo.push(tpaises[randomizador]);
-        itarj3++;
+        itarj1++;
     };
-itarj4 = 0;
+itarj2 = 0;
 };
-})
-return { tpaises, mazo }
-}
 
-cargarTarjetas();
+itarj1 = 0;
+itarj2 = 0;
 
 //Numero de jugadores
 i = 0;

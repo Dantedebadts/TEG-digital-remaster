@@ -3055,7 +3055,7 @@ function test17(colour){
         };
         i171++;
     };
-    if(nobjetivos === "true" || nobjetivos === "false"){
+    if(nobjetivos === "true" || nobjetivos === "false" || nobjetivos === "destruccion"){
     if (i172 >= 30){
         pasarfichas1.close();
         pasarfichas2.close();
@@ -3418,7 +3418,6 @@ function test16(color) {
         p.id.style.cursor = "default";
         })
     };
-    sonidoExplocion.play();
 };
 
 //Event Listeners x país
@@ -3840,7 +3839,7 @@ function obtenerEstadoJuego() {
 
 function guardarPartida() {
     let estado = obtenerEstadoJuego();
-    postEvent("guardarEstado", estado);
+    localStorage.setItem("estadoJuego", JSON.stringify(estado));
     icarg = 0;
 };
 
@@ -3858,11 +3857,14 @@ function clickGuardar() {
 
 //funcion cargar partida
 function cargarPartida() {    
-    getEvent("cargarEstado", (estado) => {  
-        turno = estado.turno;
-        fase = estado.fase;
-        currentturn.textContent = "Turno: " + turno;
-        currentphase.textContent = "Fase: " + fase;
+    let estadoGuardado = localStorage.getItem("estadoJuego");
+    if (!estadoGuardado) return; 
+    let estado = JSON.parse(estadoGuardado);
+    
+    turno = estado.turno;
+    fase = estado.fase;
+    currentturn.textContent = "Turno: " + turno;
+    currentphase.textContent = "Fase: " + fase;
 
         obj1.color = estado.obj1;
         obj2.color = estado.obj2;
@@ -4042,7 +4044,6 @@ sectormagenta.classList.remove("elsesector");
 sectornegro.classList.add("sectorturno");
 sectornegro.classList.remove("elsesector");
 }
-    });
 };
 
 

@@ -460,8 +460,6 @@ let obj15 = {
 let objetivos = [obj1, obj2, obj3, obj4, obj5, obj6, obj7, obj8, obj9];
 let desobjetivos = [obj10, obj11, obj12, obj13, obj14, obj15];
 
-connect2Server(3099);  
-
 //Declaración de Continentes
 let oceania = [];
 let africa = [];

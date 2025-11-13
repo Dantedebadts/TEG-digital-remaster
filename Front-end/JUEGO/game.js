@@ -43,6 +43,8 @@ let dadoreserva = 0;
 let tarjetareserva = 0;
 let explocion = new Audio('../AUDIO/explocion.mp3');
 let musicaVictoria = new Audio('../AUDIO/musicaVictoria.mp3');
+let musicaBackground1 = new Audio('../AUDIO/musicaBackground1.mp3');
+let musicaBackground2 = new Audio('../AUDIO/musicaBackground2.mp3');
 let i121 = 0;
 let i122 = 0;
 let i123 = 0;
@@ -117,9 +119,12 @@ function abrirMenuConfig() {
 
 //sonido y musiquita
 let botonSonido = document.getElementById("botonAnimacion");
+let botonMusica = document.getElementById("botonMusica");
 let animacionValor = ""
+let musicaValor = ""
 
 document.addEventListener("DOMContentLoaded", () => {
+    // Cargar sonido
     if (localStorage.getItem("sonidoAnimacion") === null) {
         animacionValor = "true";
         botonSonido.textContent = "Sonido activado";
@@ -129,6 +134,16 @@ document.addEventListener("DOMContentLoaded", () => {
     } else if (localStorage.getItem("sonidoAnimacion") === "false") {
         animacionValor = "false";
         botonSonido.textContent = "Sonido desactivado"
+    }
+    
+    // Cargar música de fondo
+    if (localStorage.getItem("musicaBackground") === null || localStorage.getItem("musicaBackground") === "true") {
+        musicaValor = "true";
+        if (botonMusica) botonMusica.textContent = "Música de fondo activada";
+        cargarMusicaGuardada();
+    } else {
+        musicaValor = "false";
+        if (botonMusica) botonMusica.textContent = "Música de fondo desactivada";
     }
 });    
 
@@ -144,6 +159,20 @@ function toggleSonido() {
     }
 }
 
+function toggleMusica() {
+    if (musicaValor === "true") {
+        musicaValor = "false";
+        localStorage.setItem("musicaBackground", "false");
+        if (botonMusica) botonMusica.textContent = "Música de fondo desactivada";
+        detenerMusica();
+    } else if (musicaValor === "false") {
+        musicaValor = "true";
+        localStorage.setItem("musicaBackground", "true");
+        if (botonMusica) botonMusica.textContent = "Música de fondo activada";
+        cargarMusicaGuardada();
+    }
+}
+
 function explocionAnimacion() {
     if (animacionValor === "true") { 
     explocion.currentTime = 0;
@@ -156,6 +185,89 @@ function sonarMusicaVictoria() {
     musicaVictoria.currentTime = 0;
     musicaVictoria.play();
     }
+}
+
+//Funciones para cargar y controlar música guardada
+let pistaActualJuego = null;
+let musicaAleatoria = null;
+let actualizadorMusicaJuego = null;
+
+function cargarMusicaGuardada() {
+  let musicaGuardada = JSON.parse(localStorage.getItem("musicaActual"));
+  
+  // Verificar si ya hay música reproduciéndose
+  let hayMusica = !musicaBackground1.paused || !musicaBackground2.paused;
+  
+  if (hayMusica) {
+    // Si ya hay música sonando, mantener y reiniciar guardado
+    if (!musicaBackground1.paused) {
+      pistaActualJuego = musicaBackground1;
+      iniciarGuardoMusicaJuego();
+    } else if (!musicaBackground2.paused) {
+      pistaActualJuego = musicaBackground2;
+      iniciarGuardoMusicaJuego();
+    }
+  } else if (musicaGuardada && musicaGuardada.pista > 0) {
+    // Si no hay música, cargar la guardada
+    let pista;
+    if (musicaGuardada.pista === 1) pista = musicaBackground1;
+    else if (musicaGuardada.pista === 2) pista = musicaBackground2;
+    
+    if (pista) {
+      musicaAleatoria = musicaGuardada.pista;
+      pistaActualJuego = pista;
+      
+      pista.currentTime = musicaGuardada.tiempo;
+      pista.play();
+      iniciarGuardoMusicaJuego();
+      pista.onended = reproducirMusicaAleatoriaJuego;
+    }
+  }
+}
+
+function reproducirMusicaAleatoriaJuego() {
+  musicaAleatoria = Math.floor(Math.random() * 2) + 1;
+  let pista;
+
+  if (musicaAleatoria === 1) pista = musicaBackground1;
+  else pista = musicaBackground2;
+
+  pistaActualJuego = pista;
+  pista.play();
+  iniciarGuardoMusicaJuego();
+  pista.onended = reproducirMusicaAleatoriaJuego;
+}
+
+function detenerMusica() {
+  musicaBackground1.pause();
+  musicaBackground2.pause();
+
+  musicaBackground1.currentTime = 0;
+  musicaBackground2.currentTime = 0;
+
+  detenerGuardoMusicaJuego();
+}
+
+function iniciarGuardoMusicaJuego() {
+  if (actualizadorMusicaJuego !== null) {
+    clearInterval(actualizadorMusicaJuego);
+  }
+
+  actualizadorMusicaJuego = setInterval(() => {
+    if (pistaActualJuego && !pistaActualJuego.paused) {
+      localStorage.setItem("musicaActual", JSON.stringify({
+        pista: musicaAleatoria,
+        tiempo: pistaActualJuego.currentTime,
+      }));
+    }
+  }, 50);
+}
+
+function detenerGuardoMusicaJuego() {
+  if (actualizadorMusicaJuego !== null) {
+    clearInterval(actualizadorMusicaJuego);
+    actualizadorMusicaJuego = null;
+  }
 }
 
 //brillo
@@ -3592,6 +3704,7 @@ configuracion.addEventListener("click", ()=> menuPausa.close());
 atrasConfig.addEventListener("click", ()=> menuConfig.close());
 atrasConfig.addEventListener("click", ()=> abrirMenuPausa());
 botonSonido.addEventListener("click", ()=> toggleSonido());
+botonMusica.addEventListener("click", ()=> toggleMusica());
 
 //event listeners tarjetas (no hay forma de que escriba mas event listeners que funciones)
 contenidoTrojo1.addEventListener("click",()=> test23(tarjetasrojo[0]));

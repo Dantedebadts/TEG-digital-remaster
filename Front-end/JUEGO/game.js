@@ -136,14 +136,15 @@ document.addEventListener("DOMContentLoaded", () => {
         botonSonido.textContent = "Sonido desactivado"
     }
     
-    // Cargar música de fondo
-    if (localStorage.getItem("musicaBackground") === null || localStorage.getItem("musicaBackground") === "true") {
+    // Cargar música de fondo (default: desactivada)
+    if (localStorage.getItem("musicaBackground") === "true") {
         musicaValor = "true";
         if (botonMusica) botonMusica.textContent = "Música de fondo activada";
         cargarMusicaGuardada();
     } else {
         musicaValor = "false";
         if (botonMusica) botonMusica.textContent = "Música de fondo desactivada";
+        detenerTodasPistas();
     }
 });    
 
@@ -239,6 +240,16 @@ function reproducirMusicaAleatoriaJuego() {
 }
 
 function detenerMusica() {
+  musicaBackground1.pause();
+  musicaBackground2.pause();
+
+  musicaBackground1.currentTime = 0;
+  musicaBackground2.currentTime = 0;
+
+  detenerGuardoMusicaJuego();
+}
+
+function detenerTodasPistas() {
   musicaBackground1.pause();
   musicaBackground2.pause();
 

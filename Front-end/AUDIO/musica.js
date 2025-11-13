@@ -84,6 +84,9 @@ function detenerGuardoMusica() {
   }
 }
 
-document.addEventListener("DOMContentLoaded", () => {
- cargarMusicaGuardada();
-});
+// Solo cargar música automáticamente si NO estamos en la página del juego
+if (!window.location.pathname.includes('game.html')) {
+    document.addEventListener("DOMContentLoaded", () => {
+        cargarMusicaGuardada();
+    });
+}

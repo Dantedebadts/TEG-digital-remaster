@@ -1,6 +1,8 @@
 let newGame = document.getElementById("newGame");
 let cargarGame = document.getElementById("cargarGame");
 let valorBrillo = 1;
+let botonGuar = document.getElementById("botonGuar")
+let botonCarg = document.getElementById("botonCarg");
 
 function nuevaPartida() {
   localStorage.setItem("cargarPartidaInicio", "false");
@@ -20,3 +22,14 @@ document.addEventListener("DOMContentLoaded", () => {
   };
   document.body.style.filter = "brightness(" + valorBrillo + ")";
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+  let estado = localStorage.getItem("estadoJuego")
+  let contEstado = JSON.parse(estado);
+  console.log(estado);
+  console.log(contEstado);
+  if (contEstado != null) {
+    botonCarg.style.visibility = "visible";
+  } else if (contEstado === null) {
+    botonCarg.style.visibility = "hidden";
+}});

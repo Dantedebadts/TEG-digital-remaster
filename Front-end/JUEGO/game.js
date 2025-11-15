@@ -115,32 +115,54 @@ function abrirMenuConfig() {
     menuConfig.showModal();
 }
 
+let tabButtons = document.querySelectorAll(".tab-btn");
+let tabContents = document.querySelectorAll(".tab-content");
+
+tabButtons.forEach(button => {
+    button.addEventListener("click", () => {
+        let target = button.getAttribute("data-tab");
+
+        tabButtons.forEach(btn => btn.classList.remove("active"));
+        tabContents.forEach(content => content.classList.remove("active"));
+
+        button.classList.add("active");
+        document.getElementById(target).classList.add("active");
+    });
+});
+
 //sonido y musiquita
 let botonSonido = document.getElementById("botonAnimacion");
 let animacionValor = ""
+let botonMusica = document.getElementById("botonMusica");
+
+if (localStorage.getItem("sonidoAnimacion") === null) {
+    animacionValor = "true";
+    botonSonido.textContent = "Sonido: activado";
+} else if (localStorage.getItem("sonidoAnimacion") === "true") {
+    animacionValor = "true";
+    botonSonido.textContent = "Sonido: activado";
+} else if (localStorage.getItem("sonidoAnimacion") === "false") {
+    animacionValor = "false";
+    botonSonido.textContent = "Sonido: desactivado"
+}
 
 document.addEventListener("DOMContentLoaded", () => {
-    if (localStorage.getItem("sonidoAnimacion") === null) {
-        animacionValor = "true";
-        botonSonido.textContent = "Sonido activado";
-    } else if (localStorage.getItem("sonidoAnimacion") === "true") {
-        animacionValor = "true";
-        botonSonido.textContent = "Sonido activado";
-    } else if (localStorage.getItem("sonidoAnimacion") === "false") {
-        animacionValor = "false";
-        botonSonido.textContent = "Sonido desactivado"
+    if (localStorage.getItem("musicaFondoValor") === "true") {
+           botonMusica.textContent = "Música de fondo activada";
+    } else if (localStorage.getItem("musicaFondoValor") === "false") {
+           botonMusica.textContent = "Música de fondo desactivada";
     }
-});    
+});
 
 function toggleSonido() {
     if (animacionValor === "true") {
         animacionValor = "false";
         localStorage.setItem("sonidoAnimacion", "false");
-        botonSonido.textContent = "Sonido desactivado";
+        botonSonido.textContent = "Sonido: desactivado";
     } else if (animacionValor === "false") {
         animacionValor = "true";
         localStorage.setItem("sonidoAnimacion", "true");        
-        botonSonido.textContent = "Sonido activado";
+        botonSonido.textContent = "Sonido: activado";
     }
 }
 
@@ -1537,16 +1559,16 @@ function cambiarInstructor() {
     if (instructorActivo) {
         localStorage.setItem("ninstructor", "false");
         instrucciones.style.display = "none";
-        actRapidaIns.textContent = "Instructor desactivado";
+        actRapidaIns.textContent = "Instructor:" + "    " + "desactivado";
     } else {
         localStorage.setItem("ninstructor", "true");
         instrucciones.style.display = "block";
-        actRapidaIns.textContent = "Instructor activado";
+        actRapidaIns.textContent = "Instructor:" + "    " + "activado";
     };
 };
 
 let ninstructor = localStorage.getItem("ninstructor");
-actRapidaIns.textContent = "Instructor activado";
+actRapidaIns.textContent = "Instructor:" + "    " + "activado";
 if (ninstructor == "true") {
     inicioRonda1 = "";
     inicioRonda2 = "";
@@ -1555,7 +1577,7 @@ if (ninstructor == "true") {
     reagruparInstruccion = "Selecciona dos territorios propios limitrofes para reagrupar fichas";
     instrucciones.style.display = "block"; 
 } else if (ninstructor == "false") {
-    actRapidaIns.textContent = "Instructor desactivado"
+    actRapidaIns.textContent = "Instructor:" + "    " + "desactivado"
     instrucciones.style.display = "none"; 
 };
 

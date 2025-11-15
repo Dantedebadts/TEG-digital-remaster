@@ -57,3 +57,56 @@ function cambiarSonidoAnimacion() {
 }
 
 sonidoAnimacion.addEventListener("click", cambiarSonidoAnimacion);
+
+//musica de fondo 
+let musicaFondo = new Audio ("../AUDIO/musicaBackground.mp3");
+let musicaFondoBoton = document.getElementById("musicaFondo");
+let musicaFondoValor = "";
+musicaFondo.loop = true;
+
+addEventListener("DOMContentLoaded", () => {
+if (localStorage.getItem("musicaFondoValor") === null) {
+  musicaFondoValor = "false";
+  musicaFondoBoton.textContent = "Música de fondo desactivada";
+} else if (localStorage.getItem("musicaFondoValor") === "true") {
+  musicaFondoValor = "true";
+  musicaFondoBoton.textContent = "Música de fondo activada";
+  sonarMusica();
+} else if (localStorage.getItem("musicaFondoValor") === "false") {
+  musicaFondoValor = "false";
+  musicaFondoBoton.textContent = "Música de fondo desactivada";
+}
+});
+
+function cambiarMusicaFondo() {
+  if (musicaFondoValor === "true") {
+    musicaFondoValor = "false";
+    musicaFondoBoton.textContent = "Música de fondo desactivada";
+    sonarMusica();
+    localStorage.setItem("musicaFondoValor", "false");
+  } else if (musicaFondoValor === "false") {
+    musicaFondoValor = "true";
+    musicaFondoBoton.textContent = "Música de fondo activada";
+    sonarMusica();
+    localStorage.setItem("musicaFondoValor", "true");
+  }
+}
+
+function sonarMusica() {
+  if (musicaFondoValor === "true") {
+    musicaFondo.play();
+    musicaFondo.currentTime = localStorage.getItem("tiempoMusica") || 0;
+  } else if (musicaFondoValor === "false") {
+    musicaFondo.pause();
+    tiempoMusica();
+  }
+}
+
+function tiempoMusica() {
+  let tiempo = musicaFondo.currentTime;
+  console.log(tiempo);
+  localStorage.setItem("tiempoMusica", tiempo);
+}
+
+window.addEventListener("beforeunload", tiempoMusica);
+musicaFondoBoton.addEventListener("click", cambiarMusicaFondo);

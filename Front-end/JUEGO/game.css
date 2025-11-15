@@ -390,18 +390,14 @@ svg path.nombre {
     width: auto;
 }
 
-.boton_atras {    
-    cursor: pointer;
-    text-decoration: none;
-}
-
 .guardar {
     cursor: pointer;
     transition: all 0.2s ease-in-out;
 }
 .guardar:hover {
     lighting-color: #af8308;
-    color: #403000  ;
+    color: #403000;
+    text-shadow: 0 2px 5px rgba(79, 43, 7, 0.5);
 }
 
 .currentturn {
@@ -478,6 +474,7 @@ a {
     background-color: darkgoldenrod;
     color: white;
     border-color: white
+    
 }
 
 .boton_sector {
@@ -554,13 +551,15 @@ transform: scale(1.1);
 }
 
 .actRapidaIns {
+    color: rgb(220, 185, 10);
     cursor: pointer;
     transition: all 0.2s ease-in-out;
 }
 
 .actRapidaIns:hover {
     lighting-color: #af8308;
-    color: #403000  ;
+    color: #644b01;
+    text-shadow: 0 2px 5px rgba(79, 43, 7, 0.5);
 }
 
 .menuPausa {
@@ -593,18 +592,20 @@ transform: scale(1.1);
 .atrasConfig {
     justify-self: left;
     cursor: pointer;
-    transition: all 0.1s ease-in-out;
+    transition: all 0.2s ease-in-out;
     width: 20%;
 }
 
 .atrasConfig:hover {
     lighting-color: #af8308;
-    color: #403000  ; 
+    color: #4c3a04; 
+    text-shadow: 0 2px 5px rgba(79, 43, 7, 0.5);
 }
 
 .reanudar:hover {
     lighting-color: #af8308;
-    color: #403000  ;
+    color: #403000;
+    text-shadow: 0 2px 5px rgba(79, 43, 7, 0.5);
 }
 
 .configuracion {
@@ -614,7 +615,8 @@ transform: scale(1.1);
 
 .configuracion:hover {
     lighting-color: #af8308;
-    color: #403000  ;
+    color: #403000;
+    text-shadow: 0 2px 5px rgba(79, 43, 7, 0.5);
 }
 
 .salir {
@@ -624,6 +626,7 @@ transform: scale(1.1);
 .salir:hover {
     lighting-color: #af8308;
     color: #403000;
+    text-shadow: 0 2px 5px rgba(79, 43, 7, 0.5);
 }
 
 .barraBrillo {
@@ -1431,4 +1434,48 @@ select {
     margin: 3px;
     font-family: "Tiro Bangla", serif;
     justify-self: center;
+}
+
+.tab-container {
+    background: #858181;
+    border-radius: 6px;
+    box-shadow: 0 2px 5px rgba(164, 83, 2, 0.5);
+    overflow: hidden;
+    width: 300px;
+    height: fit-content;
+    margin: auto;
+}
+
+.tab-buttons {
+    display: flex;
+    background: #333;
+}
+.tab-buttons button {
+    flex: 1;
+    padding: 12px;
+    border: none;
+    background: #333;
+    color: #fff;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+.tab-buttons button:hover {
+    background: #444;
+    text-shadow: 0 2px 5px rgba(79, 43, 7, 0.5);
+}
+.tab-buttons button.active {
+    background: #806502;
+}
+
+.tab-content {
+    display: none;
+    padding: 20px;
+}
+.tab-content.active {
+    display: block;
+}
+
+.labelBrillo {
+    color: rgb(220, 185, 10);
+    font-family: "Tiro Bangla", serif;
 }

@@ -139,6 +139,19 @@ document.addEventListener("DOMContentLoaded", () => {
         musicaValor = "true";
         if (botonMusica) botonMusica.textContent = "Música de fondo activada";
         cargarYReproducir();
+
+        // Si el navegador bloqueó el autoplay, permitir que
+        // el primer gesto del usuario reanude la reproducción.
+        const __onFirstUserGestureForMusic = () => {
+            reanudar();
+            document.removeEventListener("click", __onFirstUserGestureForMusic);
+            document.removeEventListener("keydown", __onFirstUserGestureForMusic);
+            document.removeEventListener("touchstart", __onFirstUserGestureForMusic);
+        };
+        document.addEventListener("click", __onFirstUserGestureForMusic);
+        document.addEventListener("keydown", __onFirstUserGestureForMusic);
+        document.addEventListener("touchstart", __onFirstUserGestureForMusic);
+
     } else {
         musicaValor = "false";
         if (botonMusica) botonMusica.textContent = "Música de fondo desactivada";

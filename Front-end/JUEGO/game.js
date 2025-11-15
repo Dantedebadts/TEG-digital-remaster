@@ -22,7 +22,7 @@ let botonGuardar = document.getElementById("guardar");
 let menuPausa = document.getElementById("menuPausa");
 let menuConfig = document.getElementById("menuConfig");
 let botonPausa = document.getElementById("pausaid");
-let reanudar = document.getElementById("reanudar");
+let reanudarBtn = document.getElementById("reanudar");
 let actRapidaIns = document.getElementById("actRapidaIns");
 let configuracion = document.getElementById("configuracion");
 let atrasConfig = document.getElementById("atrasConfig");
@@ -139,18 +139,6 @@ document.addEventListener("DOMContentLoaded", () => {
         musicaValor = "true";
         if (botonMusica) botonMusica.textContent = "Música de fondo activada";
         cargarYReproducir();
-
-        // Si el navegador bloqueó el autoplay, permitir que
-        // el primer gesto del usuario reanude la reproducción.
-        const __onFirstUserGestureForMusic = () => {
-            reanudar();
-            document.removeEventListener("click", __onFirstUserGestureForMusic);
-            document.removeEventListener("keydown", __onFirstUserGestureForMusic);
-            document.removeEventListener("touchstart", __onFirstUserGestureForMusic);
-        };
-        document.addEventListener("click", __onFirstUserGestureForMusic);
-        document.addEventListener("keydown", __onFirstUserGestureForMusic);
-        document.addEventListener("touchstart", __onFirstUserGestureForMusic);
 
     } else {
         musicaValor = "false";
@@ -3580,7 +3568,7 @@ cerrarpasarfichas2.addEventListener("click", ()=> pasarfichas2.close());
 cerrarpasarfichas1.addEventListener("click", ()=> test18());
 cerrarpasarfichas2.addEventListener("click", ()=> test19());
 botonPausa.addEventListener("click", ()=> abrirMenuPausa());
-reanudar.addEventListener("click", ()=> menuPausa.close());
+if (reanudarBtn) reanudarBtn.addEventListener("click", ()=> menuPausa.close());
 actRapidaIns.addEventListener("click", ()=> cambiarInstructor());
 
 mostrarrojo.addEventListener("click", function(){

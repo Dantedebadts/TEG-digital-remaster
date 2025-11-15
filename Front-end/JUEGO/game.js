@@ -137,12 +137,27 @@ document.addEventListener("DOMContentLoaded", () => {
     // Cargar música de fondo
     if (localStorage.getItem("musicaEncendida") === "si") {
         musicaValor = "true";
-        cargarYReproducir();
         if (botonMusica) botonMusica.textContent = "Música de fondo activada";
+        cargarYReproducir();
     } else {
         musicaValor = "false";
         if (botonMusica) botonMusica.textContent = "Música de fondo desactivada";
     }
+    
+    // Cargar brillo
+    let barraBrillo = document.getElementById("barraBrillo");
+    let valorBrillo = 1;
+    if(localStorage.getItem("brillo") != "null"){
+      valorBrillo = localStorage.getItem("brillo");
+      valorBrillo = parseFloat(valorBrillo);
+    }
+    barraBrillo.value = valorBrillo;
+    document.body.style.filter = "brightness(" + valorBrillo + ")";
+    barraBrillo.addEventListener("input", () => {
+      let valorBrillo = barraBrillo.value;
+      document.body.style.filter = "brightness(" + valorBrillo + ")";
+      localStorage.setItem("brillo", valorBrillo);
+    });
 });    
 
 function toggleSonido() {
@@ -187,23 +202,6 @@ function sonarMusicaVictoria() {
 
 //Funciones para cargar y controlar música guardada
 // La lógica de reproducción/guardado de música está centralizada en `AUDIO/musica.js`
-
-//brillo
-  let valorBrillo = 1;
-document.addEventListener("DOMContentLoaded", () => {
-  let barraBrillo = document.getElementById("barraBrillo");
-if(localStorage.getItem("brillo") != "null"){
-  valorBrillo = localStorage.getItem("brillo");
-  valorBrillo = parseFloat(valorBrillo);
-};
-  barraBrillo.value = valorBrillo;
-  document.body.style.filter = "brightness(" + valorBrillo + ")";
-  barraBrillo.addEventListener("input", () => {
-    let valorBrillo = barraBrillo.value;
-    document.body.style.filter = "brightness(" + valorBrillo + ")";
-    localStorage.setItem("brillo", valorBrillo);
-  });
-});
 
 //checkear cargar partida (7/10)
 let checkCargar = localStorage.getItem("cargarPartidaInicio")

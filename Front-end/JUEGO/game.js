@@ -135,7 +135,7 @@ document.addEventListener("DOMContentLoaded", () => {
         botonSonido.textContent = "Sonido desactivado"
     }
     
-    // Cargar música de fondo (default: desactivada)
+    // Cargar música de fondo
     if (localStorage.getItem("musicaEncendida") === "si") {
         musicaValor = "true";
         if (botonMusica) botonMusica.textContent = "Música de fondo activada";
@@ -143,7 +143,6 @@ document.addEventListener("DOMContentLoaded", () => {
     } else {
         musicaValor = "false";
         if (botonMusica) botonMusica.textContent = "Música de fondo desactivada";
-        pausarTodas();
     }
 });    
 

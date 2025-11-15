@@ -60,31 +60,32 @@ sonidoAnimacion.addEventListener("click", cambiarSonidoAnimacion);
 
 //musica background
 let musicaBackground = document.getElementById("musicaBackground");
-let musicaBackgroundValor = "";
-addEventListener("DOMContentLoaded", () => {
-  // Inicializar texto del botón de música (la reproducción está delegada a musica.js)
-  if (localStorage.getItem("musicaBackground") === "true") {
-    musicaBackgroundValor = "true";
+let musicaActiva = false;
+
+addEventListener("DOMContentLoaded", function() {
+  let estadoGuardado = localStorage.getItem("musicaEncendida");
+  if (estadoGuardado === "si") {
+    musicaActiva = true;
     musicaBackground.textContent = "Música de fondo activada";
+    cargarYReproducir();
   } else {
-    musicaBackgroundValor = "false";
+    musicaActiva = false;
     musicaBackground.textContent = "Música de fondo desactivada";
+    pausarTodas();
   }
 });
 
 function cambiarMusicaBackground() {
-  if (musicaBackgroundValor === "true") {
-    musicaBackgroundValor = "false";
-    musicaBackground.textContent = "Música de fondo desactivada";
-    localStorage.setItem("musicaBackground", "false");
-    // Delegar la pausa a musica.js
-    if (typeof desactivarMusica === 'function') desactivarMusica();
-  } else {
-    musicaBackgroundValor = "true";
+  if (musicaActiva === false) {
+    musicaActiva = true;
     musicaBackground.textContent = "Música de fondo activada";
-    localStorage.setItem("musicaBackground", "true");
-    // Delegar la reproducción a musica.js
-    if (typeof activarMusica === 'function') activarMusica();
+    localStorage.setItem("musicaEncendida", "si");
+    cargarYReproducir();
+  } else {
+    musicaActiva = false;
+    musicaBackground.textContent = "Música de fondo desactivada";
+    localStorage.setItem("musicaEncendida", "no");
+    pausarTodas();
   }
 }
 

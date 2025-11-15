@@ -33,8 +33,10 @@ document.addEventListener("DOMContentLoaded", () => {
 }});
 
 document.addEventListener('DOMContentLoaded', function(){
-      if (localStorage.getItem('musicaBackground') === 'true') {
-        if (typeof activarMusica === 'function') activarMusica();
-      }
+  if (localStorage.getItem('musicaEncendida') === 'si') {
+    cargarYReproducir();
+  } else {
+    pausarTodas();
+  }
 });
   

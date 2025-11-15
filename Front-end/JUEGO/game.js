@@ -43,7 +43,6 @@ let dadoreserva = 0;
 let tarjetareserva = 0;
 let explocion = new Audio('../AUDIO/explocion.mp3');
 let musicaVictoria = new Audio('../AUDIO/musicaVictoria.mp3');
-// Background music audio instances are declared in `AUDIO/musica.js`
 let i121 = 0;
 let i122 = 0;
 let i123 = 0;
@@ -138,8 +137,8 @@ document.addEventListener("DOMContentLoaded", () => {
     // Cargar música de fondo
     if (localStorage.getItem("musicaEncendida") === "si") {
         musicaValor = "true";
-        if (botonMusica) botonMusica.textContent = "Música de fondo activada";
         cargarYReproducir();
+        if (botonMusica) botonMusica.textContent = "Música de fondo activada";
     } else {
         musicaValor = "false";
         if (botonMusica) botonMusica.textContent = "Música de fondo desactivada";

@@ -26,10 +26,15 @@ document.addEventListener("DOMContentLoaded", () => {
 document.addEventListener("DOMContentLoaded", () => {
   let estado = localStorage.getItem("estadoJuego")
   let contEstado = JSON.parse(estado);
-  console.log(estado);
-  console.log(contEstado);
   if (contEstado != null) {
     botonCarg.style.visibility = "visible";
   } else if (contEstado === null) {
     botonCarg.style.visibility = "hidden";
 }});
+
+document.addEventListener('DOMContentLoaded', function(){
+      if (localStorage.getItem('musicaBackground') === 'true') {
+        if (typeof activarMusica === 'function') activarMusica();
+      }
+});
+  

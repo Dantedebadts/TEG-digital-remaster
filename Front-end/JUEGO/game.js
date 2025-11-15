@@ -43,8 +43,7 @@ let dadoreserva = 0;
 let tarjetareserva = 0;
 let explocion = new Audio('../AUDIO/explocion.mp3');
 let musicaVictoria = new Audio('../AUDIO/musicaVictoria.mp3');
-let musicaBackground1 = new Audio('../AUDIO/musicaBackground1.mp3');
-let musicaBackground2 = new Audio('../AUDIO/musicaBackground2.mp3');
+// Background music audio instances are declared in `AUDIO/musica.js`
 let i121 = 0;
 let i122 = 0;
 let i123 = 0;
@@ -140,11 +139,11 @@ document.addEventListener("DOMContentLoaded", () => {
     if (localStorage.getItem("musicaBackground") === "true") {
         musicaValor = "true";
         if (botonMusica) botonMusica.textContent = "Música de fondo activada";
-        cargarMusicaGuardada();
+        if (typeof activarMusica === 'function') activarMusica();
     } else {
         musicaValor = "false";
         if (botonMusica) botonMusica.textContent = "Música de fondo desactivada";
-        detenerTodasPistas();
+        if (typeof desactivarMusica === 'function') desactivarMusica();
     }
 });    
 
@@ -163,14 +162,12 @@ function toggleSonido() {
 function toggleMusica() {
     if (musicaValor === "true") {
         musicaValor = "false";
-        localStorage.setItem("musicaBackground", "false");
         if (botonMusica) botonMusica.textContent = "Música de fondo desactivada";
-        detenerMusica();
+        if (typeof desactivarMusica === 'function') desactivarMusica();
     } else if (musicaValor === "false") {
         musicaValor = "true";
-        localStorage.setItem("musicaBackground", "true");
         if (botonMusica) botonMusica.textContent = "Música de fondo activada";
-        cargarMusicaGuardada();
+        if (typeof activarMusica === 'function') activarMusica();
     }
 }
 
@@ -189,97 +186,7 @@ function sonarMusicaVictoria() {
 }
 
 //Funciones para cargar y controlar música guardada
-let pistaActualJuego = null;
-let musicaAleatoria = null;
-let actualizadorMusicaJuego = null;
-
-function cargarMusicaGuardada() {
-  let musicaGuardada = JSON.parse(localStorage.getItem("musicaActual"));
-  
-  // Verificar si ya hay música reproduciéndose
-  let hayMusica = !musicaBackground1.paused || !musicaBackground2.paused;
-  
-  if (hayMusica) {
-    // Si ya hay música sonando, mantener y reiniciar guardado
-    if (!musicaBackground1.paused) {
-      pistaActualJuego = musicaBackground1;
-      iniciarGuardoMusicaJuego();
-    } else if (!musicaBackground2.paused) {
-      pistaActualJuego = musicaBackground2;
-      iniciarGuardoMusicaJuego();
-    }
-  } else if (musicaGuardada && musicaGuardada.pista > 0) {
-    // Si no hay música, cargar la guardada
-    let pista;
-    if (musicaGuardada.pista === 1) pista = musicaBackground1;
-    else if (musicaGuardada.pista === 2) pista = musicaBackground2;
-    
-    if (pista) {
-      musicaAleatoria = musicaGuardada.pista;
-      pistaActualJuego = pista;
-      
-      pista.currentTime = musicaGuardada.tiempo;
-      pista.play();
-      iniciarGuardoMusicaJuego();
-      pista.onended = reproducirMusicaAleatoriaJuego;
-    }
-  }
-}
-
-function reproducirMusicaAleatoriaJuego() {
-  musicaAleatoria = Math.floor(Math.random() * 2) + 1;
-  let pista;
-
-  if (musicaAleatoria === 1) pista = musicaBackground1;
-  else pista = musicaBackground2;
-
-  pistaActualJuego = pista;
-  pista.play();
-  iniciarGuardoMusicaJuego();
-  pista.onended = reproducirMusicaAleatoriaJuego;
-}
-
-function detenerMusica() {
-  musicaBackground1.pause();
-  musicaBackground2.pause();
-
-  musicaBackground1.currentTime = 0;
-  musicaBackground2.currentTime = 0;
-
-  detenerGuardoMusicaJuego();
-}
-
-function detenerTodasPistas() {
-  musicaBackground1.pause();
-  musicaBackground2.pause();
-
-  musicaBackground1.currentTime = 0;
-  musicaBackground2.currentTime = 0;
-
-  detenerGuardoMusicaJuego();
-}
-
-function iniciarGuardoMusicaJuego() {
-  if (actualizadorMusicaJuego !== null) {
-    clearInterval(actualizadorMusicaJuego);
-  }
-
-  actualizadorMusicaJuego = setInterval(() => {
-    if (pistaActualJuego && !pistaActualJuego.paused) {
-      localStorage.setItem("musicaActual", JSON.stringify({
-        pista: musicaAleatoria,
-        tiempo: pistaActualJuego.currentTime,
-      }));
-    }
-  }, 50);
-}
-
-function detenerGuardoMusicaJuego() {
-  if (actualizadorMusicaJuego !== null) {
-    clearInterval(actualizadorMusicaJuego);
-    actualizadorMusicaJuego = null;
-  }
-}
+// La lógica de reproducción/guardado de música está centralizada en `AUDIO/musica.js`
 
 //brillo
   let valorBrillo = 1;
@@ -3185,7 +3092,7 @@ function test17(colour){
         setTimeout(function() {
             sonarMusicaVictoria();
             fin.showModal();
-        }, 1000); 
+        }, 300); 
         
         
     };
@@ -3199,7 +3106,7 @@ function test17(colour){
         setTimeout(function() {
             sonarMusicaVictoria();
             fin.showModal();
-        }, 1000); 
+        }, 300); 
     };
     };
     if(nobjetivos === "true" || nobjetivos === "destruccion"){
@@ -3257,7 +3164,7 @@ function test17(colour){
         setTimeout(function() {
             sonarMusicaVictoria();
             fin.showModal();
-        }, 1000); 
+        }, 300); 
     };
 };
 };
@@ -3415,7 +3322,7 @@ function test27(color){
         setTimeout(function() {
             sonarMusicaVictoria();
             fin.showModal();
-        }, 1000); 
+        }, 300); 
     };
 };
 };
@@ -3969,7 +3876,7 @@ function confirmarGuardado() {
     guardadoListo.showModal(); 
     setTimeout(function() {
         guardadoListo.close();
-    }, 1000); 
+    }, 300); 
 };
 
 function clickGuardar() {

@@ -43,6 +43,7 @@ let dadoreserva = 0;
 let tarjetareserva = 0;
 let explocion = new Audio('../AUDIO/explocion.mp3');
 let musicaVictoria = new Audio('../AUDIO/musicaVictoria.mp3');
+let musicaBackground = new Audio('../AUDIO/musicaBackground.mp3');
 let i121 = 0;
 let i122 = 0;
 let i123 = 0;
@@ -133,7 +134,8 @@ tabButtons.forEach(button => {
 //sonido y musiquita
 let botonSonido = document.getElementById("botonAnimacion");
 let botonMusica = document.getElementById("botonMusica");
-let animacionValor = ""
+let animacionValor = "";
+let musicaValor = "";
 
 if (localStorage.getItem("sonidoAnimacion") === null) {
     animacionValor = "true";
@@ -165,20 +167,6 @@ function toggleSonido() {
     }
 }
 
-function toggleMusica() {
-    if (musicaValor === "true") {
-        musicaValor = "false";
-        if (botonMusica) botonMusica.textContent = "Música de fondo desactivada";
-        localStorage.setItem("musicaEncendida", "no");
-        pausarTodas();
-    } else if (musicaValor === "false") {
-        musicaValor = "true";
-        if (botonMusica) botonMusica.textContent = "Música de fondo activada";
-        localStorage.setItem("musicaEncendida", "si");
-        cargarYReproducir();
-    }
-}
-
 function explocionAnimacion() {
     if (animacionValor === "true") { 
     explocion.currentTime = 0;
@@ -193,8 +181,6 @@ function sonarMusicaVictoria() {
     }
 }
 
-//Funciones para cargar y controlar música guardada
-// La lógica de reproducción/guardado de música está centralizada en `AUDIO/musica.js`
 
 //checkear cargar partida (7/10)
 let checkCargar = localStorage.getItem("cargarPartidaInicio")
@@ -3613,7 +3599,6 @@ configuracion.addEventListener("click", ()=> menuPausa.close());
 atrasConfig.addEventListener("click", ()=> menuConfig.close());
 atrasConfig.addEventListener("click", ()=> abrirMenuPausa());
 botonSonido.addEventListener("click", ()=> toggleSonido());
-botonMusica.addEventListener("click", ()=> toggleMusica());
 
 //event listeners tarjetas (no hay forma de que escriba mas event listeners que funciones)
 contenidoTrojo1.addEventListener("click",()=> test23(tarjetasrojo[0]));

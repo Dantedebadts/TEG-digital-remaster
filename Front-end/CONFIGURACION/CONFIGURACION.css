@@ -77,6 +77,33 @@ body {
     transition: opacity 0.5s ease-in-out; 
 }
 
+.barraVolumen {
+     width: 300px; 
+    height: 15px; 
+    border-radius: 10px; 
+    border: 3px solid;
+    border-color: #c59a3e;
+    appearance: none; 
+    margin-top: 20px; 
+    cursor: pointer;
+    background: linear-gradient(45deg, #0a4e82, #a01d02ef);
+    padding: 5px 10px;
+    transition: opacity 0.5s ease-in-out; 
+}
+
+.barraVolumen::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  background-color: #c59a3e;
+  border-radius: 4px; 
+  border-width: 2px;
+  border-style: solid;
+  border-color: #413e3e8a;
+  cursor: pointer;
+}
+
 .boton_atras:hover {
     background-color: #f7f3e9; 
     color: #c59a3e; 

@@ -49,4 +49,32 @@ if (window.location.pathname.endsWith("game.html")) {
 botonMusica.addEventListener("click", cambiarMusicaFondo);
 };
 
+//volumen 
+let valorVolumen = 1;
+
+document.addEventListener("DOMContentLoaded", () => {
+
+  let volumGuardado = localStorage.getItem("volumen");
+  if (volumGuardado !== null) {
+      valorVolumen = Number(volumGuardado);
+  } else {
+      valorVolumen = 1;
+  }
+
+  musicaFondo.volume = valorVolumen;
+});
+
+if (window.location.pathname.endsWith("game.html")) {
+  let barraVolumen = document.getElementById("barraVolumen");
+  document.addEventListener("DOMContentLoaded", () => {
+      barraVolumen.value = valorVolumen;
+      barraVolumen.addEventListener("input", () => {
+          valorVolumen = Number(barraVolumen.value);
+          musicaFondo.volume = valorVolumen;
+          localStorage.setItem("volumen", valorVolumen);
+      });
+  });
+
+}
+
 window.addEventListener("beforeunload", tiempoMusica);

@@ -110,3 +110,26 @@ function tiempoMusica() {
 
 window.addEventListener("beforeunload", tiempoMusica);
 musicaFondoBoton.addEventListener("click", cambiarMusicaFondo);
+
+// barra de volumen
+let valorVolumen = 1;
+
+document.addEventListener("DOMContentLoaded", () => {
+    let barraVolumen = document.getElementById("barraVolumen");
+
+    let volumGuardado = localStorage.getItem("volumen");
+    if (volumGuardado !== null) {
+        valorVolumen = Number(volumGuardado);
+    } else {
+        valorVolumen = 1;
+    }
+
+    barraVolumen.value = valorVolumen;
+    musicaFondo.volume = valorVolumen;
+
+    barraVolumen.addEventListener("input", () => {
+        valorVolumen = Number(barraVolumen.value);
+        musicaFondo.volume = valorVolumen;
+        localStorage.setItem("volumen", valorVolumen);
+    });
+});

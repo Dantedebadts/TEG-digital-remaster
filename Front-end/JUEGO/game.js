@@ -204,6 +204,27 @@ if (nobjetivos === null) {
     nobjetivos = "false"
 };
 
+// brillo
+let valorBrillo = 1;
+let barraBrilloJuego = document.getElementById("barraBrillo");
+
+document.addEventListener("DOMContentLoaded", () => {
+  if(localStorage.getItem("brillo") != "null"){
+  valorBrillo = localStorage.getItem("brillo");
+  valorBrillo = parseFloat(valorBrillo);
+  };
+  document.body.style.filter = "brightness(" + valorBrillo + ")";
+  
+  if(barraBrilloJuego) {
+    barraBrilloJuego.value = valorBrillo;
+    barraBrilloJuego.addEventListener("input", () => {
+      valorBrillo = barraBrilloJuego.value;
+      document.body.style.filter = "brightness(" + valorBrillo + ")";
+      localStorage.setItem("brillo", valorBrillo);
+    });
+  }
+});
+
 //declaracion (dialogs) 
 let mostrarTrojo = document.getElementById("mostrarTrojo");
 let mostrarTazul = document.getElementById("mostrarTazul");
@@ -4060,3 +4081,4 @@ window.onload = function() {
     actualizarInstrucciones(fase);
     }};
 actualizarInstrucciones(fase);
+

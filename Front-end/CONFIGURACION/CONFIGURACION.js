@@ -1,8 +1,9 @@
 // barra de valor brillo
 let valorBrillo = 1;
+let barraBrillo = document.getElementById("barraBrillo");
+let restablecerBrillo = document.getElementById("restablecerBrillo");
 
 document.addEventListener("DOMContentLoaded", () => {
-  let barraBrillo = document.getElementById("barraBrillo");
   if(localStorage.getItem("brillo") != "null"){
   valorBrillo = localStorage.getItem("brillo");
   };
@@ -10,7 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
   document.body.style.filter = "brightness(" + valorBrillo + ")";
 
   barraBrillo.addEventListener("input", () => {
-    let valorBrillo = barraBrillo.value;
+    valorBrillo = barraBrillo.value;
     document.body.style.filter = "brightness(" + valorBrillo + ")";
     localStorage.setItem("brillo", valorBrillo);
   });
@@ -24,7 +25,6 @@ document.body.style.filter = "brightness(" + valorBrillo + ")";
 localStorage.setItem("brillo", valorBrillo);
 };
 
-let restablecerBrillo = document.getElementById("restablecerBrillo");
 restablecerBrillo.addEventListener("click", resetbrillo);
 
 //sonidos animacion

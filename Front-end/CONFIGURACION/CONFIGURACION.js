@@ -34,24 +34,24 @@ let sonidoAnimacionValor = "";
 addEventListener("DOMContentLoaded", () => {
 if (localStorage.getItem("sonidoAnimacion") === null) {
    sonidoAnimacionValor = "true";
-   sonidoAnimacion.textContent = "Sonido de animación activado";
+   sonidoAnimacion.textContent = "Sonidos de animación activado";
 } else if (localStorage.getItem("sonidoAnimacion") === "true") {
    sonidoAnimacionValor = "true";
    sonidoAnimacion.textContent = "Sonido de animación activado";
 } else if (localStorage.getItem("sonidoAnimacion") === "false") {
    sonidoAnimacionValor = "false";
-   sonidoAnimacion.textContent = "Sonido de animación desactivado";
+   sonidoAnimacion.textContent = "Sonidos de animación desactivado";
 }
 });
 
 function cambiarSonidoAnimacion() {
   if (sonidoAnimacionValor === "true") {
     sonidoAnimacionValor = "false";
-    sonidoAnimacion.textContent = "Sonido de animación desactivado";
+    sonidoAnimacion.textContent = "Sonidos de animación desactivado";
     localStorage.setItem("sonidoAnimacion", "false");
   } else if (sonidoAnimacionValor === "false") {
     sonidoAnimacionValor = "true";
-    sonidoAnimacion.textContent = "Sonido de animación activado";
+    sonidoAnimacion.textContent = "Sonidos de animación activado";
     localStorage.setItem("sonidoAnimacion", "true");
   }
 }

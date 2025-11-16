@@ -22,7 +22,7 @@ let botonGuardar = document.getElementById("guardar");
 let menuPausa = document.getElementById("menuPausa");
 let menuConfig = document.getElementById("menuConfig");
 let botonPausa = document.getElementById("pausaid");
-let reanudar = document.getElementById("reanudar");
+let reanudarBtn = document.getElementById("reanudar");
 let actRapidaIns = document.getElementById("actRapidaIns");
 let configuracion = document.getElementById("configuracion");
 let atrasConfig = document.getElementById("atrasConfig");
@@ -132,8 +132,8 @@ tabButtons.forEach(button => {
 
 //sonido y musiquita
 let botonSonido = document.getElementById("botonAnimacion");
-let animacionValor = ""
 let botonMusica = document.getElementById("botonMusica");
+let animacionValor = ""
 
 if (localStorage.getItem("sonidoAnimacion") === null) {
     animacionValor = "true";
@@ -146,13 +146,12 @@ if (localStorage.getItem("sonidoAnimacion") === null) {
     botonSonido.textContent = "Sonido: desactivado"
 }
 
-document.addEventListener("DOMContentLoaded", () => {
-    if (localStorage.getItem("musicaFondoValor") === "true") {
-           botonMusica.textContent = "Música de fondo activada";
-    } else if (localStorage.getItem("musicaFondoValor") === "false") {
-           botonMusica.textContent = "Música de fondo desactivada";
-    }
-});
+if (localStorage.getItem("musicaFondoValor") === "true") {
+        botonMusica.textContent = "Música de fondo activada";
+} else if (localStorage.getItem("musicaFondoValor") === "false") {
+        botonMusica.textContent = "Música de fondo desactivada";
+};
+
 
 function toggleSonido() {
     if (animacionValor === "true") {
@@ -163,6 +162,20 @@ function toggleSonido() {
         animacionValor = "true";
         localStorage.setItem("sonidoAnimacion", "true");        
         botonSonido.textContent = "Sonido: activado";
+    }
+}
+
+function toggleMusica() {
+    if (musicaValor === "true") {
+        musicaValor = "false";
+        if (botonMusica) botonMusica.textContent = "Música de fondo desactivada";
+        localStorage.setItem("musicaEncendida", "no");
+        pausarTodas();
+    } else if (musicaValor === "false") {
+        musicaValor = "true";
+        if (botonMusica) botonMusica.textContent = "Música de fondo activada";
+        localStorage.setItem("musicaEncendida", "si");
+        cargarYReproducir();
     }
 }
 
@@ -180,22 +193,8 @@ function sonarMusicaVictoria() {
     }
 }
 
-//brillo
-  let valorBrillo = 1;
-document.addEventListener("DOMContentLoaded", () => {
-  let barraBrillo = document.getElementById("barraBrillo");
-if(localStorage.getItem("brillo") != "null"){
-  valorBrillo = localStorage.getItem("brillo");
-  valorBrillo = parseFloat(valorBrillo);
-};
-  barraBrillo.value = valorBrillo;
-  document.body.style.filter = "brightness(" + valorBrillo + ")";
-  barraBrillo.addEventListener("input", () => {
-    let valorBrillo = barraBrillo.value;
-    document.body.style.filter = "brightness(" + valorBrillo + ")";
-    localStorage.setItem("brillo", valorBrillo);
-  });
-});
+//Funciones para cargar y controlar música guardada
+// La lógica de reproducción/guardado de música está centralizada en `AUDIO/musica.js`
 
 //checkear cargar partida (7/10)
 let checkCargar = localStorage.getItem("cargarPartidaInicio")
@@ -3084,7 +3083,7 @@ function test17(colour){
         setTimeout(function() {
             sonarMusicaVictoria();
             fin.showModal();
-        }, 1000); 
+        }, 300); 
         
         
     };
@@ -3098,7 +3097,7 @@ function test17(colour){
         setTimeout(function() {
             sonarMusicaVictoria();
             fin.showModal();
-        }, 1000); 
+        }, 300); 
     };
     };
     if(nobjetivos === "true" || nobjetivos === "destruccion"){
@@ -3156,7 +3155,7 @@ function test17(colour){
         setTimeout(function() {
             sonarMusicaVictoria();
             fin.showModal();
-        }, 1000); 
+        }, 300); 
     };
 };
 };
@@ -3314,7 +3313,7 @@ function test27(color){
         setTimeout(function() {
             sonarMusicaVictoria();
             fin.showModal();
-        }, 1000); 
+        }, 300); 
     };
 };
 };
@@ -3561,7 +3560,7 @@ cerrarpasarfichas2.addEventListener("click", ()=> pasarfichas2.close());
 cerrarpasarfichas1.addEventListener("click", ()=> test18());
 cerrarpasarfichas2.addEventListener("click", ()=> test19());
 botonPausa.addEventListener("click", ()=> abrirMenuPausa());
-reanudar.addEventListener("click", ()=> menuPausa.close());
+if (reanudarBtn) reanudarBtn.addEventListener("click", ()=> menuPausa.close());
 actRapidaIns.addEventListener("click", ()=> cambiarInstructor());
 
 mostrarrojo.addEventListener("click", function(){
@@ -3614,6 +3613,7 @@ configuracion.addEventListener("click", ()=> menuPausa.close());
 atrasConfig.addEventListener("click", ()=> menuConfig.close());
 atrasConfig.addEventListener("click", ()=> abrirMenuPausa());
 botonSonido.addEventListener("click", ()=> toggleSonido());
+botonMusica.addEventListener("click", ()=> toggleMusica());
 
 //event listeners tarjetas (no hay forma de que escriba mas event listeners que funciones)
 contenidoTrojo1.addEventListener("click",()=> test23(tarjetasrojo[0]));
@@ -3867,7 +3867,7 @@ function confirmarGuardado() {
     guardadoListo.showModal(); 
     setTimeout(function() {
         guardadoListo.close();
-    }, 1000); 
+    }, 300); 
 };
 
 function clickGuardar() {

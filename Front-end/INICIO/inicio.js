@@ -34,9 +34,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
 document.addEventListener('DOMContentLoaded', function(){
   if (localStorage.getItem('musicaEncendida') === 'si') {
-    cargarYReproducir();
+    sonarMusica();
   } else {
-    pausarTodas();
+    sonarMusica();
   }
 });
   

@@ -11,10 +11,32 @@ body {
    background-size: 100%;
 }
 
+.nombrePart {
+  background-color: rgb(255, 254, 204);
+  width: fit-content;
+  height: 8%;
+  text-align: center;
+  font-size:135%;
+  color: darkgoldenrod;
+  font-family: "Tiro Bangla", serif;
+  font-weight: 600;
+  font-style: normal;
+  border-radius: 10px;
+  border-width: 3px;
+  border-style: solid;
+  border-color: darkgoldenrod;    
+  transition: all 0.2s ease-in-out;
+}
+
+::placeholder {
+  color: rgb(87, 79, 59);
+  opacity: 1;
+}
+
 .cantJugadores{
   background-color: rgb(255, 254, 204);
   width: 25%;
-  height: 12%;
+  height: 10%;
   text-align: center;
   font-size:135%;
   color: darkgoldenrod;
@@ -31,7 +53,7 @@ body {
 .objSecretos {
   background-color: rgb(255, 254, 204);
   width: 25%;
-  height: 12%;
+  height: 10%;
   text-align: center;
   font-size: 135%;
   color: darkgoldenrod;
@@ -48,7 +70,7 @@ body {
 .instructor {
   background-color: rgb(255, 254, 204);;
   width: 25%;
-  height: 12%;
+  height: 10%;
   text-align: center;
   font-size: 135%;
   color: darkgoldenrod;

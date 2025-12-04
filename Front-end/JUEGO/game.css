@@ -1512,3 +1512,12 @@ select {
     color: rgb(220, 185, 10);
     font-family: "Tiro Bangla", serif;
 }
+
+.barquito {
+    position: absolute;
+    width: 4%;
+    height: auto;
+    top: 73%;
+    right: 93%;
+    animation: moveBoat 10s linear infinite;
+}

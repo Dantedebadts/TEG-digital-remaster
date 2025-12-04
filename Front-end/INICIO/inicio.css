@@ -129,3 +129,61 @@ img{
     align-items: center;
     gap: 0px;
 }
+
+.partidas {
+    width: 25%;
+    background-color: #c59a3e;
+    border-radius: 10px;
+    border-color: white;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.atras {
+    width: fit-content;
+    height: auto;
+    font-size: 75%;
+    color: darkgoldenrod;
+    padding: 4px;
+    background-color: rgb(255, 254, 204);
+    margin: 2px;
+    border-radius: 10px;
+    border-style: solid;
+    border-color: darkgoldenrod;
+    font-family: "Tiro Bangla", serif;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+.atras:hover{
+    transform: scale(1.1);
+    background-color: darkgoldenrod;
+    color: white;
+    border-color: white
+    
+}
+
+li {
+    position: relative;
+    list-style-type: none;
+    right: 7%;
+    align-self: center;
+    padding: 10px;
+    margin: 5px;
+    background-color: rgb(255, 254, 204);
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: "Tiro Bangla", serif;
+    transition: all 0.2s ease-in-out;
+}
+
+li:hover {
+    background-color: darkgoldenrod;
+    color: white;
+    transform: scale(1.05);
+}
+
+.bordeNegro {
+    border: 3px solid black;
+}

@@ -27,6 +27,8 @@ let actRapidaIns = document.getElementById("actRapidaIns");
 let configuracion = document.getElementById("configuracion");
 let atrasConfig = document.getElementById("atrasConfig");
 let guardadoListo = document.getElementById("guardadoListo");
+let partidaAJugar = localStorage.getItem("partidaAJugar");
+let listaPartidas = JSON.parse(localStorage.getItem("partidasGuardadas"));
 let i = 0;
 let i2 = 0;
 let dado = 0;
@@ -3794,7 +3796,7 @@ paises.forEach((v)=>{
     })
     })
 
-//funcion guardar partida
+//funcion limpiar estado juego
 function obtenerEstadoJuego() {
     let paisesLimpios = paises.map(p => ({
       nombre: p.nombre,
@@ -3863,11 +3865,20 @@ function obtenerEstadoJuego() {
     };
   };
 
+//funciones de guardar
 function guardarPartida() {
     let estado = obtenerEstadoJuego();
-    localStorage.setItem("estadoJuego", JSON.stringify(estado));
+    
+    for (let i = 0; i < listaPartidas.length; i++) {
+
+        if (listaPartidas[i].nombre === partidaAJugar) {
+            listaPartidas[i].estado.push(estado);
+            break; 
+        }
+
+    localStorage.setItem("partidasGuardadas", JSON.stringify(listaPartidas));
     icarg = 0;
-};
+}};
 
 function confirmarGuardado() {
     guardadoListo.showModal(); 
@@ -4081,4 +4092,3 @@ window.onload = function() {
     actualizarInstrucciones(fase);
     }};
 actualizarInstrucciones(fase);
-

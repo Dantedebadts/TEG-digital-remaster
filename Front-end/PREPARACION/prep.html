@@ -14,36 +14,29 @@
 </head>
 <body>
     <a href="../INICIO/inicio.html" class="boton_atras"><div> Volver </div></a>
-   
-    <dialog id="advertencia" class="advertencia">
-        <div id="contenidojug"></div>
-        <div id="contenidoobj"></div>
-        <div id="contenidoins"></div>
-        <button class="boton_interaccion" id="cerrar">Cerrar</button>
-    </dialog>
     <h1>PREPARACIÓN</h1>
-    <select id="playersid" class="cantJugadores"> 
-    <option value="0">Cantidad de Jugadores</option>
-    <option value="2">2</option>
-    <option value="3">3</option>
-    <option value="4">4</option>
-    <option value="5">5</option>
-    <option value="6">6</option>
-    </select>
     <br>
-    <select id="objetivosid" class="objSecretos">
-    <option value="0">Modo de Juego</option>
-    <option class="chiquito" value="1">Objetivos Secretos (Sin Obj. de Destrucción)</option>
-    <option class="chiquito" value="4">Objetivos Secretos (Con Obj. de Destrucción)</option>
-    <option value="2">Objetivo Común (30 Países)</option>
-    <option value="3">Dominación Mundial (50 Países)</option>
-    </select>
     <br>
-    <select id="instructorid" class="instructor">
-    <option value="0"> Instructor </option>
-    <option value="1"> SI (recomendado)</option>
-    <option value="2"> NO </option>
-    </select>
+    <div id="playersid" class="cantJugadores2">
+        <div class="menosjugadores" id="menosjugadores">-</div>
+        <div id="jugadorestxt">2 JUGADORES</div>
+        <div class="masjugadores" id="masjugadores">+</div>
+    </div>
+    <br>
+    <br>
+    <div id="objetivosid" class="cantObjetivos2">
+        <div class="menosjugadores" id="anteriorobj"><</div>
+        <div class="objetivostxt" id="objetivostxt">OBJETIVOS SECRETOS (SIN OBJ. DE DESTRUCCIÓN)</div>
+        <div class="masjugadores" id="siguienteobj">></div>
+    </div>
+    <br>
+    <br>
+    <div id="instructorid" class="cantInstructor2">
+        <div class="menosjugadores" id="anteriorins"><</div>
+        <div class="instxt" id="instxt">CON INSTRUCTOR</div>
+        <div class="masjugadores" id="siguienteins">></div>
+    </div>
+    <br>
     <br>
     <button id="gameready" class="botonSiguiente">Siguiente</button>
         <a href="../CREDITOS/creditos.html">

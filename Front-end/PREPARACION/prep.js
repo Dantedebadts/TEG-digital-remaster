@@ -1,68 +1,20 @@
-let players = document.getElementById("playersid");
-let objectives = document.getElementById("objetivosid");
-let instructor = document.getElementById("instructorid")
-let advertenciapopup = document.getElementById("advertencia");
-let contenidojug = document.getElementById("contenidojug");
-let contenidoobj = document.getElementById("contenidoobj");
-let contenidopart = document.getElementById("contenidopart");
-let cerrar = document.getElementById("cerrar");
-let contenidoins = document.getElementById("contenidoins");
-let njugadores = null;
-let nobjetivos = null;
-let ninstructor = null;
+let njugadores = 2;
+let nobjetivos = "true";
+let ninstructor = true;
+localStorage.setItem("njugadores", njugadores);
+localStorage.setItem("nobjetivos", nobjetivos);
+localStorage.setItem("ninstructor", ninstructor);
 
 function test3 () {
-if (parseInt(players.value) === 0){
-contenidojug.textContent = "SELECCIONAR CANTIDAD DE JUGADORES";
-} else {
-contenidojug.textContent = parseInt(players.value) + " JUGADORES";
-njugadores = parseInt(players.value);
 localStorage.setItem("njugadores", njugadores);
-}; 
-
-if(parseInt(objectives.value)===0){
-contenidoobj.textContent = "SELECCIONAR MODO DE JUEGO";  
-} else if(parseInt(objectives.value)===1){
-contenidoobj.textContent ="OBJETIVOS SECRETOS (SIN OBJ. DE DESTRUCCIÓN)";
-nobjetivos = "true";
 localStorage.setItem("nobjetivos", nobjetivos);
-} else if(parseInt(objectives.value)===4){
-contenidoobj.textContent = "OBJETIVOS SECRETOS (CON OBJ. DE DESTRUCCIÓN)";
-nobjetivos = "destruccion";
-localStorage.setItem("nobjetivos", nobjetivos);
-} else if(parseInt(objectives.value)===2){
-contenidoobj.textContent = "OBJETIVO COMÚN (30 PAÍSES)";
-nobjetivos = "false";
-localStorage.setItem("nobjetivos", nobjetivos);
-} else if(parseInt(objectives.value)===3){
-contenidoobj.textContent ="DOMINACIÓN MUNDIAL (50 PAÍSES)";
-nobjetivos = "dominacion";
-localStorage.setItem("nobjetivos", nobjetivos);
-};
-
-if(parseInt(instructor.value) === 0){
-    contenidoins.textContent = "SELECCIONAR USO DE INSTRUCTOR";
-} else if(parseInt(instructor.value) === 1){
-    contenidoins.textContent = "CON INSTRUCTOR";
-    ninstructor = true;
-    localStorage.setItem("ninstructor", ninstructor);
-} else if(parseInt(instructor.value) === 2){
-    contenidoins.textContent = "SIN INSTRUCTOR";
-    ninstructor = false;
-    localStorage.setItem("ninstructor", ninstructor);
-};
-advertenciapopup.showModal();
-if(parseInt(players.value) != 0 && parseInt(objectives.value) != 0 && parseInt(instructor.value)!= 0) {
-window.location.href = "../JUEGO/game.html";
+localStorage.setItem("ninstructor", ninstructor);
 localStorage.setItem("cargarPartidaInicio", "false");
 window.location.href = "../JUEGO/game.html";
 };
-};
-;
 
 let ready = document.getElementById("gameready");
 ready.addEventListener("click", test3);
-cerrar.addEventListener("click", ()=> advertenciapopup.close());
 
 let valorBrillo = 1;
 document.addEventListener("DOMContentLoaded", () => {
@@ -74,3 +26,90 @@ document.addEventListener("DOMContentLoaded", () => {
 
 });
 
+let masjugadores = document.getElementById("masjugadores");
+let menosjugadores = document.getElementById("menosjugadores");
+let jugadorestxt = document.getElementById("jugadorestxt");
+masjugadores.addEventListener("click", () => {
+    if (njugadores < 6){
+    njugadores ++;
+    jugadorestxt.textContent = njugadores + " JUGADORES";
+    localStorage.setItem("njugadores", njugadores);
+    }});
+menosjugadores.addEventListener("click", () => {
+    if (njugadores > 2){
+    njugadores --;
+    jugadorestxt.textContent = njugadores + " JUGADORES";
+    localStorage.setItem("njugadores", njugadores);
+    }});
+let anteriorobj = document.getElementById("anteriorobj");
+let siguienteobj = document.getElementById("siguienteobj");
+let objetivostxt = document.getElementById("objetivostxt");
+let objsindestruccion = {
+    ls: "true",
+    string: "OBJETIVOS SECRETOS (SIN OBJ. DE DESTRUCCIÓN)"
+};
+let objcondestruccion = {
+    ls: "destruccion",
+    string: "OBJETIVOS SECRETOS (CON OBJ. DE DESTRUCCIÓN)"
+};
+let objcomun = {
+    ls: "false",
+    string: "OBJETIVO COMÚN (30 PAÍSES)"
+};
+let dominacionmundial = {
+    ls: "dominacion",
+    string: "DOMINACIÓN MUNDIAL (50 PAÍSES)"
+};
+let listaobj = [objsindestruccion, objcondestruccion, objcomun, dominacionmundial];
+let indiceobj = 0;
+siguienteobj.addEventListener("click", () => {
+    if (indiceobj < listaobj.length - 1){
+    indiceobj ++;
+    objetivostxt.textContent = listaobj[indiceobj].string;
+    nobjetivos = listaobj[indiceobj].ls;
+    localStorage.setItem("nobjetivos", nobjetivos);
+    } else{
+        indiceobj = 0;
+        objetivostxt.textContent = listaobj[indiceobj].string;
+        nobjetivos = listaobj[indiceobj].ls;
+        localStorage.setItem("nobjetivos", nobjetivos);
+    }
+});
+anteriorobj.addEventListener("click", () => {
+    if (indiceobj > 0){
+    indiceobj --;
+    objetivostxt.textContent = listaobj[indiceobj].string;
+    nobjetivos = listaobj[indiceobj].ls;
+    localStorage.setItem("nobjetivos", nobjetivos);
+    } else{
+        indiceobj = listaobj.length - 1;
+        objetivostxt.textContent = listaobj[indiceobj].string;
+        nobjetivos = listaobj[indiceobj].ls;
+        localStorage.setItem("nobjetivos", nobjetivos);
+    }
+});
+let anteriorins = document.getElementById("anteriorins");
+let siguienteins = document.getElementById("siguienteins");
+let instructortxt = document.getElementById("instxt");
+siguienteins.addEventListener("click", () => {
+    if(ninstructor === true){
+        ninstructor = false;
+        instructortxt.textContent = "SIN INSTRUCTOR";
+        localStorage.setItem("ninstructor", ninstructor);
+    } else if(ninstructor === false){
+        ninstructor = true;
+        instructortxt.textContent = "CON INSTRUCTOR";
+        localStorage.setItem("ninstructor", ninstructor);
+    }
+});
+anteriorins.addEventListener("click", () => {
+    if(ninstructor === true){
+        ninstructor = false;
+        instructortxt.textContent = "SIN INSTRUCTOR";
+        localStorage.setItem("ninstructor", ninstructor);
+    } else if(ninstructor === false){
+        ninstructor = true;
+        instructortxt.textContent = "CON INSTRUCTOR";
+        localStorage.setItem("ninstructor", ninstructor);
+    }
+});

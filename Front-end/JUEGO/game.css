@@ -39,6 +39,18 @@ svg path.nombre {
   pointer-events: none;
 }
 
+dialog{
+    outline: none;
+}
+
+select{
+    outline: none;
+}
+
+button{
+    outline: none;
+}
+
 .australia {
     position: absolute;
     top: 69.4%;
@@ -1384,7 +1396,12 @@ transform: scale(1.1);
     background-color: #c59a3e;
     box-shadow: rgb(58, 45, 45);
     font-family: "Tiro Bangla", serif;
-    border-radius: 10px
+    border-radius: 10px;
+    outline: none;
+}
+
+.selectpasarfichas{
+    outline: none;
 }
 
 .guardadoListo {

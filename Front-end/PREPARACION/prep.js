@@ -1,7 +1,7 @@
 let players = document.getElementById("playersid");
 let objectives = document.getElementById("objetivosid");
 let instructor = document.getElementById("instructorid")
-let advertenciapopup = document.getElementById("advertenciapopup");
+let advertenciapopup = document.getElementById("advertencia");
 let contenidojug = document.getElementById("contenidojug");
 let contenidoobj = document.getElementById("contenidoobj");
 let contenidopart = document.getElementById("contenidopart");
@@ -10,11 +10,6 @@ let contenidoins = document.getElementById("contenidoins");
 let njugadores = null;
 let nobjetivos = null;
 let ninstructor = null;
-let fecha = new Date().toLocaleString();
-
-let partidasGuardadas = [];
-partidasGuardadas = JSON.parse(localStorage.getItem("partidasGuardadas"));
-
 
 function test3 () {
 if (parseInt(players.value) === 0){

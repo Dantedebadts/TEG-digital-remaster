@@ -1,7 +1,7 @@
 let players = document.getElementById("playersid");
 let objectives = document.getElementById("objetivosid");
 let instructor = document.getElementById("instructorid")
-let advertencia = document.getElementById("advertencia");
+let advertenciapopup = document.getElementById("advertenciapopup");
 let contenidojug = document.getElementById("contenidojug");
 let contenidoobj = document.getElementById("contenidoobj");
 let cerrar = document.getElementById("cerrar");
@@ -47,7 +47,7 @@ if(parseInt(instructor.value) === 0){
     ninstructor = false;
     localStorage.setItem("ninstructor", ninstructor);
 };
-advertencia.showModal();
+advertenciapopup.showModal();
 if(parseInt(players.value) != 0 && parseInt(objectives.value) != 0 && parseInt(instructor.value)!= 0) {
 window.location.href = "../JUEGO/game.html";
 localStorage.setItem("cargarPartidaInicio", "false");
@@ -55,7 +55,7 @@ localStorage.setItem("cargarPartidaInicio", "false");
 };
 let ready = document.getElementById("gameready");
 ready.addEventListener("click", test3);
-cerrar.addEventListener("click", ()=> advertencia.close());
+cerrar.addEventListener("click", ()=> advertenciapopup.close());
 
 let valorBrillo = 1;
 document.addEventListener("DOMContentLoaded", () => {

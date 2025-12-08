@@ -4,11 +4,18 @@ let instructor = document.getElementById("instructorid")
 let advertenciapopup = document.getElementById("advertenciapopup");
 let contenidojug = document.getElementById("contenidojug");
 let contenidoobj = document.getElementById("contenidoobj");
+let contenidopart = document.getElementById("contenidopart");
 let cerrar = document.getElementById("cerrar");
 let contenidoins = document.getElementById("contenidoins");
 let njugadores = null;
 let nobjetivos = null;
 let ninstructor = null;
+let fecha = new Date().toLocaleString();
+
+let partidasGuardadas = [];
+partidasGuardadas = JSON.parse(localStorage.getItem("partidasGuardadas"));
+
+
 function test3 () {
 if (parseInt(players.value) === 0){
 contenidojug.textContent = "SELECCIONAR CANTIDAD DE JUGADORES";
@@ -16,7 +23,8 @@ contenidojug.textContent = "SELECCIONAR CANTIDAD DE JUGADORES";
 contenidojug.textContent = parseInt(players.value) + " JUGADORES";
 njugadores = parseInt(players.value);
 localStorage.setItem("njugadores", njugadores);
-};
+}; 
+
 if(parseInt(objectives.value)===0){
 contenidoobj.textContent = "SELECCIONAR MODO DE JUEGO";  
 } else if(parseInt(objectives.value)===1){
@@ -36,6 +44,7 @@ contenidoobj.textContent ="DOMINACIÓN MUNDIAL (50 PAÍSES)";
 nobjetivos = "dominacion";
 localStorage.setItem("nobjetivos", nobjetivos);
 };
+
 if(parseInt(instructor.value) === 0){
     contenidoins.textContent = "SELECCIONAR USO DE INSTRUCTOR";
 } else if(parseInt(instructor.value) === 1){
@@ -51,8 +60,11 @@ advertenciapopup.showModal();
 if(parseInt(players.value) != 0 && parseInt(objectives.value) != 0 && parseInt(instructor.value)!= 0) {
 window.location.href = "../JUEGO/game.html";
 localStorage.setItem("cargarPartidaInicio", "false");
+window.location.href = "../JUEGO/game.html";
 };
 };
+;
+
 let ready = document.getElementById("gameready");
 ready.addEventListener("click", test3);
 cerrar.addEventListener("click", ()=> advertenciapopup.close());
@@ -66,3 +78,4 @@ document.addEventListener("DOMContentLoaded", () => {
   document.body.style.filter = "brightness(" + valorBrillo + ")";
 
 });
+

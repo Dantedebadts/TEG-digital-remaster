@@ -356,6 +356,9 @@ let fichascanjemagenta = document.getElementById("fichascanjemagenta");
 let fichascanjenegro = document.getElementById("fichascanjenegro");
 let fichascanjearray = [fichascanjerojo, fichascanjeazul, fichascanjeamarillo, fichascanjeverde, fichascanjemagenta, fichascanjenegro];
 let salir = document.getElementById("salir");
+let deliminarjugador = document.getElementById("deliminarjugador");
+let celiminarjugador = document.getElementById("celiminarjugador");
+let cerrareliminarjugador = document.getElementById("cerrareliminarjugador");
 
 //Declaracion de instrucciones
 let inicioRonda1 = "Tenes 5 fichas para incorporar, clickea un territorio propio para poner una ficha";
@@ -3265,6 +3268,12 @@ function test27(color){
             mazo.push(t);
     });
     tarjetasrojo = [];
+    docTrojo.forEach((d)=>{
+        d.textContent = "";
+        d.classList.remove("tarjeta");
+        d.classList.remove("bordeAmarillo");
+        d.innerHTML = "";
+    });
     } else if(color === "Azul"){
         tarjetasazul.forEach((t)=>{
             t.fichas = 2;
@@ -3272,6 +3281,12 @@ function test27(color){
             mazo.push(t);
         });
         tarjetasazul = [];
+        docTazul.forEach((d)=>{
+        d.textContent = "";
+        d.classList.remove("tarjeta");
+        d.classList.remove("bordeAmarillo");
+        d.innerHTML = "";
+        });
     } else if(color === "Amarillo"){
         tarjetasamarillo.forEach((t)=>{
             t.fichas = 2;
@@ -3279,6 +3294,12 @@ function test27(color){
             mazo.push(t);
         });
         tarjetasamarillo = [];
+        docTamarillo.forEach((d)=>{
+        d.textContent = "";
+        d.classList.remove("tarjeta");
+        d.classList.remove("bordeAmarillo");
+        d.innerHTML = "";
+    });
     } else if(color === "Verde"){
         tarjetasverde.forEach((t)=>{
             t.fichas = 2;
@@ -3286,6 +3307,12 @@ function test27(color){
             mazo.push(t);
         });
         tarjetasverde = [];
+        docTverde.forEach((d)=>{
+        d.textContent = "";
+        d.classList.remove("tarjeta");
+        d.classList.remove("bordeAmarillo");
+        d.innerHTML = "";
+        });
     } else if(color === "Magenta"){
         tarjetasmagenta.forEach((t)=>{
             t.fichas = 2;
@@ -3293,6 +3320,12 @@ function test27(color){
             mazo.push(t);
         });
         tarjetasmagenta = [];
+        docTmagenta.forEach((d)=>{
+        d.textContent = "";
+        d.classList.remove("tarjeta");
+        d.classList.remove("bordeAmarillo");
+        d.innerHTML = "";
+        });
     } else if(color === "Negro"){
         tarjetasnegro.forEach((t)=>{
             t.fichas = 2;
@@ -3300,7 +3333,15 @@ function test27(color){
             mazo.push(t);
         });
         tarjetasnegro = [];
+        docTnegro.forEach((d)=>{
+        d.textContent = "";
+        d.classList.remove("tarjeta");
+        d.classList.remove("bordeAmarillo");
+        d.innerHTML = "";
+        });
     };
+    celiminarjugador.textContent = "El ejército " + color + " fue derrotado.";
+    deliminarjugador.showModal();
     while(colores.length > i272 && colores[i272] != color){
         i272++;
     };
@@ -3315,6 +3356,7 @@ function test27(color){
         if(objetivos[i273].destruir === color){
         pasarfichas1.close();
         pasarfichas2.close();
+        deliminarjugador.close();
         mensajefinal.textContent = "El " + turno + " completó su objetivo secreto: " + objetivos[i273].string;
         ganador = true;
         setTimeout(function() {
@@ -3614,6 +3656,7 @@ cerrarTmagenta.addEventListener("click",()=> dialogTmagenta.close());
 mostrarTnegro.addEventListener("click",()=> dialogTnegro.showModal());
 cerrarTnegro.addEventListener("click",()=> dialogTnegro.close());
 cerrarnuevatarjeta.addEventListener("click",()=> dnuevatarjeta.close());
+cerrareliminarjugador.addEventListener("click",()=> deliminarjugador.close());
 
 configuracion.addEventListener("click", ()=> abrirMenuConfig());
 configuracion.addEventListener("click", ()=> menuPausa.close());

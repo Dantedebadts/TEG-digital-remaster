@@ -88,11 +88,13 @@ h1{
 }
 
 .menosjugadores{
-  cursor: pointer;
+  cursor: pointer;  
+  font-size: 125%;
 }
 
 .masjugadores{
   cursor: pointer;
+  font-size: 125%;
 }
 
 .botonSiguiente {
@@ -183,4 +185,8 @@ font-size: 250%;
 position: absolute;
 top: 5%;
 font-weight: normal;
+}
+
+.masMenos {
+  font-size: 170%;
 }

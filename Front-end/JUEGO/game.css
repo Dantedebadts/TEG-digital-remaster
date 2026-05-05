@@ -6,6 +6,7 @@ body {
     align-items: center;
     background-color: #242323;
     gap: 1%;
+    overflow-y: hidden;
 }
 
 .map-container {
@@ -407,8 +408,7 @@ button{
     transition: all 0.2s ease-in-out;
 }
 .guardar:hover {
-    lighting-color: #af8308;
-    color: #403000;
+    color: #c59a3e;
     text-shadow: 0 2px 5px rgba(79, 43, 7, 0.5);
 }
 
@@ -563,15 +563,17 @@ transform: scale(1.1);
 }
 
 .actRapidaIns {
-    color: rgb(220, 185, 10);
+    background-color: #555;
+    color: rgb(255, 254, 204);
+    padding: 5px 10px;
+    border-radius: 5px;
     cursor: pointer;
     transition: all 0.2s ease-in-out;
 }
 
 .actRapidaIns:hover {
-    lighting-color: #af8308;
-    color: #644b01;
-    text-shadow: 0 2px 5px rgba(79, 43, 7, 0.5);
+    background-color: #c59a3e;
+    color: #333;
 }
 
 .menuPausa {
@@ -582,10 +584,11 @@ transform: scale(1.1);
     align-items: center;
     font-family: "Tiro Bangla", serif;
     font-style:inherit;
-    background-color: #c59a3e;
+    background-color: #333;
     border-radius: 10px;
-    color: white;
+    color: rgb(255, 254, 204);
     outline: none;
+    border: 2px solid #c59a3e;
 }
 
 .menuConfig {
@@ -597,10 +600,11 @@ transform: scale(1.1);
     vertical-align: auto;
     font-family: "Tiro Bangla", serif;
     font-style:inherit;
-    background-color: #c59a3e;
+    background-color: #333;
     border-radius: 10px;
-    color: white;
+    color: rgb(255, 254, 204);
     outline: none;
+    border: 2px solid #c59a3e;
 }
 
 .atrasConfig {
@@ -617,8 +621,7 @@ transform: scale(1.1);
 }
 
 .reanudar:hover {
-    lighting-color: #af8308;
-    color: #403000;
+    color: #c59a3e;
     text-shadow: 0 2px 5px rgba(79, 43, 7, 0.5);
 }
 
@@ -628,8 +631,7 @@ transform: scale(1.1);
 }
 
 .configuracion:hover {
-    lighting-color: #af8308;
-    color: #403000;
+    color: #c59a3e;
     text-shadow: 0 2px 5px rgba(79, 43, 7, 0.5);
 }
 
@@ -638,21 +640,20 @@ transform: scale(1.1);
     transition: all 0.2s ease-in-out;
 }
 .salir:hover {
-    lighting-color: #af8308;
-    color: #403000;
+    color: #c59a3e;
     text-shadow: 0 2px 5px rgba(79, 43, 7, 0.5);
 }
 
 .barraBrillo {
     width: 60%; 
-    height: auto;
+    height: 15px;
     border-radius: 10px; 
     border: 3px solid;
     border-color: #c59a3e;
     appearance: none; 
     margin-top: 20px; 
     cursor: pointer;
-    background: linear-gradient(45deg, #504e4c, #c4bab7ef);
+    background: linear-gradient(45deg, #000, #fff);
     padding: 5px 10px;
     transition: opacity 0.5s ease-in-out; 
 }
@@ -668,6 +669,7 @@ transform: scale(1.1);
   border-style: solid;
   border-color: #413e3e8a;
   cursor: pointer;
+  transition: all 0.3s ease-in-out;
 }
 
 .barraVolumen {
@@ -679,7 +681,7 @@ transform: scale(1.1);
     appearance: none; 
     margin-top: 20px; 
     cursor: pointer;
-    background: linear-gradient(45deg, #0a4e82, #a01d02ef);
+    background: linear-gradient(45deg, rgb(49, 48, 48), rgb(141, 111, 77));
     padding: 5px 10px;
     transition: opacity 0.5s ease-in-out; 
 }
@@ -695,6 +697,7 @@ transform: scale(1.1);
   border-style: solid;
   border-color: #413e3e8a;
   cursor: pointer;
+  transition: all 0.3s ease-in-out;
 }
 
 .tarjeta {
@@ -1483,35 +1486,35 @@ select {
 }
 
 .tab-container {
-    background: #858181;
+    background: #333;
     border-radius: 6px;
     box-shadow: 0 2px 5px rgba(164, 83, 2, 0.5);
     overflow: hidden;
     width: 300px;
     height: fit-content;
     margin: auto;
+    border: 1px solid #c59a3e;
 }
 
 .tab-buttons {
     display: flex;
-    background: #333;
+    background: #555;
 }
 .tab-buttons button {
     flex: 1;
     padding: 12px;
     border: none;
-    background: #333;
-    color: #fff;
+    background: #555;
+    color: rgb(255, 254, 204);
     cursor: pointer;
     transition: background 0.3s;
 }
 .tab-buttons button:hover {
-    background: #444;
-    text-shadow: 0 2px 5px rgba(79, 43, 7, 0.5);
+    background: #777;
 }
 .tab-buttons button.active {
-    background: #806502;
-    outline: none;
+    background: #c59a3e;
+    color: #333;
 }
 
 .tab-content {
@@ -1526,6 +1529,6 @@ select {
 }
 
 .labelBrillo {
-    color: rgb(220, 185, 10);
+    color: rgb(255, 254, 204);
     font-family: "Tiro Bangla", serif;
 }

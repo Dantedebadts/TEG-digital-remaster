@@ -587,6 +587,7 @@ transform: scale(1.1);
     background-color: #333;
     border-radius: 10px;
     color: rgb(255, 254, 204);
+    box-shadow: 0 0 7px #c98d03;
     outline: none;
     border: 2px solid #c59a3e;
 }
@@ -730,6 +731,7 @@ transform: scale(1.1);
     border-color: white;
     justify-content: center;
     align-items: center ;
+    box-shadow: 0 0 7px #c98d03;
 }
 
 .dialogdados{
@@ -739,6 +741,7 @@ transform: scale(1.1);
     align-items: center;
     gap: 5px;
     font-family: "Tiro Bangla", serif;
+    box-shadow: 0 0 7px #c98d03;
 }
 
 .containertarjetas{
@@ -1383,6 +1386,7 @@ transform: scale(1.1);
     border-width: 3px;   
     border-style: solid;
     border-color: darkgoldenrod;
+    box-shadow: 0 0 10px #dd9d08;
 }
 
 .elsesector{

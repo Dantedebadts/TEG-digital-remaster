@@ -27,6 +27,8 @@ let actRapidaIns = document.getElementById("actRapidaIns");
 let configuracion = document.getElementById("configuracion");
 let atrasConfig = document.getElementById("atrasConfig");
 let guardadoListo = document.getElementById("guardadoListo");
+let divpaisconquistado2 = document.getElementById("divpaisconquistado2");
+let divpaisconquistado1 = document.getElementById("divpaisconquistado1");
 let i = 0;
 let i2 = 0;
 let dado = 0;
@@ -3457,11 +3459,13 @@ function test16(color) {
         if(paisseleccionado.fichas === 2){
         paisconquistador = paisseleccionado;
         paisconquistado = paisatacado;
+        divpaisconquistado1.textContent = "Conquistaste " + paisconquistado.nombre;
         pasarfichas1.showModal();
         resultadodados.close();
         } else if (paisseleccionado.fichas >= 3){
         paisconquistador = paisseleccionado;
         paisconquistado = paisatacado;
+        divpaisconquistado2.textContent = "Conquistaste " + paisconquistado.nombre;
         pasarfichas2.showModal();
         resultadodados.close();
         };

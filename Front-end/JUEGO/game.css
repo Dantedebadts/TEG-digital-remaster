@@ -741,7 +741,6 @@ transform: scale(1.1);
     align-items: center;
     gap: 5px;
     font-family: "Tiro Bangla", serif;
-    box-shadow: 0 0 7px #c98d03;
 }
 
 .containertarjetas{
@@ -781,7 +780,7 @@ transform: scale(1.1);
     text-align: center;
     color: white;
     background-color: #c59a3e;
-    box-shadow: rgb(58, 45, 45);
+    box-shadow: 0 0 7px #c98d03;
     font-family: "Tiro Bangla", serif;
 }
 
@@ -791,6 +790,7 @@ transform: scale(1.1);
     border-color: #c59a3e;
     justify-content: center;
     align-items: center ;
+    box-shadow: 0 0 7px #c98d03;
 }
 
 .fin_dialog {
@@ -1401,7 +1401,7 @@ transform: scale(1.1);
     text-align: center;
     color: white;
     background-color: #c59a3e;
-    box-shadow: rgb(58, 45, 45);
+    box-shadow: 0 0 7px #c98d03;
     font-family: "Tiro Bangla", serif;
     border-radius: 10px;
     outline: none;
@@ -1419,7 +1419,7 @@ transform: scale(1.1);
     text-align: center;
     color: white;
     background-color: #c59a3e;
-    box-shadow: rgb(58, 45, 45);
+    box-shadow: 0 0 7px #c98d03;
     font-family: "Tiro Bangla", serif;
     border-radius: 10px;
 }
@@ -1452,9 +1452,9 @@ select {
     text-align: center;
     color: white;
     background-color: #c59a3e;
-    box-shadow: rgb(58, 45, 45);
     font-family: "Tiro Bangla", serif;
-    border-radius: 10px
+    border-radius: 10px;
+    box-shadow: 0 0 7px #c98d03;
 }
 
 .containerobjetivo{
@@ -1471,7 +1471,7 @@ select {
     text-align: center;
     color: white;
     background-color: #c59a3e;
-    box-shadow: rgb(58, 45, 45);
+    box-shadow: 0 0 7px #c98d03;
     font-family: "Tiro Bangla", serif;
     border-radius: 10px
 }

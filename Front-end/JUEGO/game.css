@@ -780,7 +780,6 @@ transform: scale(1.1);
     text-align: center;
     color: white;
     background-color: #c59a3e;
-    box-shadow: 0 0 7px #c98d03;
     font-family: "Tiro Bangla", serif;
 }
 
@@ -797,6 +796,7 @@ transform: scale(1.1);
     background-color: #c59a3e;
     border-radius: 10px;
     border-color: white;
+    box-shadow: 0 0 7px #c98d03;
 }
 
 .rojo{background-color: red;}

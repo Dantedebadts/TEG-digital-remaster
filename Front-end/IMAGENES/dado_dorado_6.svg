@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100">
+  <defs>
+    <linearGradient id="whiteGoldBody6" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="60%" stop-color="#fdfbf7"/>
+      <stop offset="100%" stop-color="#f5ecdc"/>
+    </linearGradient>
+    <linearGradient id="goldPip6" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffe57f"/>
+      <stop offset="35%" stop-color="#d4af37"/>
+      <stop offset="70%" stop-color="#b8860b"/>
+      <stop offset="100%" stop-color="#7a5500"/>
+    </linearGradient>
+    <filter id="goldPipShadow6" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="1.5" stdDeviation="1" flood-color="#5c4300" flood-opacity="0.5"/>
+    </filter>
+  </defs>
+  <rect x="5" y="5" width="90" height="90" rx="18" ry="18" fill="url(#whiteGoldBody6)" stroke="#c59a3e" stroke-width="2.5"/>
+  <rect x="7.5" y="7.5" width="85" height="85" rx="15.5" ry="15.5" fill="none" stroke="#e8c766" stroke-width="1.5" stroke-opacity="0.75"/>
+  <path d="M 14 14 Q 50 22 86 14 Q 78 38 14 14" fill="#ffffff" fill-opacity="0.6"/>
+  <circle cx="27" cy="25" r="8.5" fill="url(#goldPip6)" filter="url(#goldPipShadow6)"/>
+  <circle cx="25" cy="23" r="2.8" fill="#ffffff" fill-opacity="0.45"/>
+  <circle cx="73" cy="25" r="8.5" fill="url(#goldPip6)" filter="url(#goldPipShadow6)"/>
+  <circle cx="71" cy="23" r="2.8" fill="#ffffff" fill-opacity="0.45"/>
+  <circle cx="27" cy="50" r="8.5" fill="url(#goldPip6)" filter="url(#goldPipShadow6)"/>
+  <circle cx="25" cy="48" r="2.8" fill="#ffffff" fill-opacity="0.45"/>
+  <circle cx="73" cy="50" r="8.5" fill="url(#goldPip6)" filter="url(#goldPipShadow6)"/>
+  <circle cx="71" cy="48" r="2.8" fill="#ffffff" fill-opacity="0.45"/>
+  <circle cx="27" cy="75" r="8.5" fill="url(#goldPip6)" filter="url(#goldPipShadow6)"/>
+  <circle cx="25" cy="73" r="2.8" fill="#ffffff" fill-opacity="0.45"/>
+  <circle cx="73" cy="75" r="8.5" fill="url(#goldPip6)" filter="url(#goldPipShadow6)"/>
+  <circle cx="71" cy="73" r="2.8" fill="#ffffff" fill-opacity="0.45"/>
+</svg>

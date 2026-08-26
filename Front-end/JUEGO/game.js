@@ -3176,7 +3176,7 @@ return(ganador);
 
 //Dialogs pasar fichas
 function test18() {
-        if (parseInt(selectpasarfichas1.value) === 2){
+    if (parseInt(selectpasarfichas1.value) === 2){
         paisconquistador.fichas--;
         paisconquistado.fichas++;
     };
@@ -3186,7 +3186,6 @@ function test18() {
     paisconquistado = 0;
     paisconquistador = 0;
     selectpasarfichas1.selectedIndex = 0;
-    resultadodados.showModal();
 };
 function test19() {
     if(parseInt(selectpasarfichas2.value) === 2){
@@ -3202,7 +3201,6 @@ function test19() {
     paisconquistado = 0;
     paisconquistador = 0;
     selectpasarfichas2.selectedIndex = 0;
-    resultadodados.showModal();
 };
 
 //Conquistas por turno
@@ -3381,8 +3379,8 @@ function test16(color) {
     i162 = 0;
     paisconquistado = 0;
     paisconquistador = 0;
-    dresultadosatacante.textContent = "";
-    dresultadosdefensor.textContent = "";
+    dresultadosatacante.innerHTML = "";
+    dresultadosdefensor.innerHTML = "";
     if (color === turno && color === paisseleccionado.colorfichas && paisatacado != 0) {   
         explocionAnimacion();
         dadosatacante = paisseleccionado.fichas - 1;
@@ -3431,13 +3429,23 @@ function test16(color) {
                 };
             };
         };
+        dresultadosatacante.innerHTML = "";
         while(resultadosatacante.length > i162){
-            dresultadosatacante.textContent = dresultadosatacante.textContent + resultadosatacante[i162] + " ";
+            let imgDado = document.createElement("img");
+            imgDado.src = `../IMAGENES/dado_rojo_${resultadosatacante[i162]}.svg`;
+            imgDado.alt = `Dado ${resultadosatacante[i162]}`;
+            imgDado.className = "imgdado dadoatacante";
+            dresultadosatacante.appendChild(imgDado);
             i162++;
         };
         i162 = 0;
+        dresultadosdefensor.innerHTML = "";
         while(resultadosdefensor.length > i162){
-            dresultadosdefensor.textContent = dresultadosdefensor.textContent + resultadosdefensor[i162] + " ";
+            let imgDado = document.createElement("img");
+            imgDado.src = `../IMAGENES/dado_blanco_${resultadosdefensor[i162]}.svg`;
+            imgDado.alt = `Dado ${resultadosdefensor[i162]}`;
+            imgDado.className = "imgdado dadodefensor";
+            dresultadosdefensor.appendChild(imgDado);
             i162++;
         };
         i162 = 0;
@@ -3456,26 +3464,15 @@ function test16(color) {
             paisseleccionado.fichas--;
             coloratacado = paisatacado.colorfichas;
             paisatacado.colorfichas = paisseleccionado.colorfichas;
-        if(paisseleccionado.fichas === 2){
-        paisconquistador = paisseleccionado;
-        paisconquistado = paisatacado;
-        divpaisconquistado1.textContent = "Conquistaste " + paisconquistado.nombre;
-        pasarfichas1.showModal();
-        resultadodados.close();
-        } else if (paisseleccionado.fichas >= 3){
-        paisconquistador = paisseleccionado;
-        paisconquistado = paisatacado;
-        divpaisconquistado2.textContent = "Conquistaste " + paisconquistado.nombre;
-        pasarfichas2.showModal();
-        resultadodados.close();
+            paisconquistador = paisseleccionado;
+            paisconquistado = paisatacado;
+            test17(color);
+            test21(color);
+            test27(coloratacado);
+            if(ganador === true){
+                resultadodados.close();
+            };
         };
-        test17(color);
-        test21(color);
-        test27(coloratacado);
-        if(ganador === true){
-        resultadodados.close();
-        };
-    };
         test26(paisseleccionado);
         test26(paisatacado);
         guardarPartida();
@@ -3646,7 +3643,21 @@ mostrarnegro.addEventListener("click", function(){
         objetivonegro.showModal()};
     });
 cerrarnegro.addEventListener("click",()=> objetivonegro.close());
-cerrardados.addEventListener("click",()=> resultadodados.close());
+cerrardados.addEventListener("click", function() {
+    resultadodados.close();
+    if (paisconquistador != 0 && paisconquistado != 0 && ganador !== true) {
+        if (paisconquistador.fichas === 2) {
+            divpaisconquistado1.textContent = "Conquistaste " + paisconquistado.nombre;
+            pasarfichas1.showModal();
+        } else if (paisconquistador.fichas >= 3) {
+            divpaisconquistado2.textContent = "Conquistaste " + paisconquistado.nombre;
+            pasarfichas2.showModal();
+        } else {
+            paisconquistador = 0;
+            paisconquistado = 0;
+        }
+    }
+});
 mostrarTrojo.addEventListener("click",()=> dialogTrojo.showModal());
 cerrarTrojo.addEventListener("click",()=> dialogTrojo.close());
 mostrarTazul.addEventListener("click",()=> dialogTazul.showModal());

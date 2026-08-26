@@ -734,12 +734,20 @@ transform: scale(1.1);
     box-shadow: 0 0 7px #c98d03;
 }
 
+.dialogresultados{
+    background-color: #c59a3e;
+    border-radius: 12px;
+    border: 2px solid white;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.4), 0 0 7px #c98d03;
+    padding: 15px 20px;
+}
+
 .dialogdados{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 5px;
+    gap: 15px;
     font-family: "Tiro Bangla", serif;
 }
 
@@ -753,23 +761,55 @@ transform: scale(1.1);
 .containerdados{
     display: flex;
     flex-direction: row;
-    gap: 10px;
+    gap: 25px;
+    justify-content: center;
+    align-items: flex-start;
 }
 
 .containeratacante{
     display: flex;
     flex-direction: column;
-    gap: 5px;
+    gap: 8px;
     justify-content: center;
     align-items: center;
+    color: white;
+    font-weight: bold;
+    font-size: 1.15rem;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
 }
 
 .containerdefensor{
     display: flex;
     flex-direction: column;
-    gap: 5px;
+    gap: 8px;
     justify-content: center;
     align-items: center;
+    color: white;
+    font-weight: bold;
+    font-size: 1.15rem;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+#dresultadosatacante, #dresultadosdefensor {
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+    justify-content: center;
+    align-items: center;
+    min-height: 50px;
+    min-width: 50px;
+}
+
+.imgdado {
+    width: 48px;
+    height: 48px;
+    border-radius: 10px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.35);
+    transition: transform 0.2s ease-in-out;
+}
+
+.imgdado:hover {
+    transform: scale(1.08);
 }
 
 .fin{
